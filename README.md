@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/header.png" alt="Outerloop" width="480" />
+  <img src="docs/architecture.md" alt="Outerloop" width="480" />
 </p>
 
 # outerloop
