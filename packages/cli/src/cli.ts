@@ -10,8 +10,9 @@ import { registerGovernanceCommands } from "./commands/governance.js";
 import { registerTasteCommands } from "./commands/taste.js";
 import { registerPolicyCommands } from "./commands/policy-cmd.js";
 import { registerIntegrateCommands } from "./commands/integrate-cmd.js";
+import { registerScaleCommands } from "./commands/scale.js";
 
-const VERSION = "0.1.0";
+const VERSION = "0.2.0";
 
 export function createProgram(): Command {
   const program = new Command();
@@ -31,13 +32,7 @@ export function createProgram(): Command {
   registerTasteCommands(program);
   registerPolicyCommands(program);
   registerIntegrateCommands(program);
-
-  program
-    .command("audit")
-    .description("Score how well outerloop itself is using outerloop")
-    .action(() => {
-      console.log(chalk.yellow("Coming in Phase 3: outerloop audit scoring."));
-    });
+  registerScaleCommands(program);
 
   return program;
 }

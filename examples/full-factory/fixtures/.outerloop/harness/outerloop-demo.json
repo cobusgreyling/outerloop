@@ -1,0 +1,57 @@
+{
+  "name": "outerloop-demo",
+  "version": "1.0.0",
+  "inside": {
+    "capabilities": [
+      "investigate",
+      "implement",
+      "verify",
+      "iterate"
+    ],
+    "toolsWhitelist": [
+      "read",
+      "search",
+      "test"
+    ],
+    "memoryScopes": [
+      "STATE.md",
+      "worktree",
+      "run-log"
+    ]
+  },
+  "outside": {
+    "humanAgency": [
+      "verdict",
+      "taste",
+      "policy",
+      "ship-decision",
+      "escalation",
+      "all-merges"
+    ],
+    "vetoConditions": [
+      "no-verdict",
+      "high-risk-without-rationale",
+      "taste-block",
+      "agent-write-without-evidence"
+    ],
+    "escalationPaths": [
+      "senior-owner",
+      "security-review",
+      "rollback-plan"
+    ]
+  },
+  "observabilityHooks": [
+    "evidence-package",
+    "ledger-entry",
+    "risk-score"
+  ],
+  "recoveryStrategies": [
+    "revert-commit",
+    "narrow-scope",
+    "block-and-redirect"
+  ],
+  "backpressureDefaults": {
+    "policyId": "team-default",
+    "path": ".outerloop/policy/active.yaml"
+  }
+}

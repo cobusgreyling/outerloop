@@ -1,0 +1,23 @@
+{
+  "name": "@cobusgreyling/outerloop-attention",
+  "version": "0.1.0",
+  "description": "Attention routing and prioritization for pending verdicts",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": { ".": { "types": "./dist/index.d.ts", "import": "./dist/index.js" } },
+  "files": ["dist"],
+  "scripts": { "build": "tsc", "test": "vitest run", "clean": "rm -rf dist" },
+  "dependencies": {
+    "@cobusgreyling/outerloop-core": "workspace:*",
+    "@cobusgreyling/outerloop-evidence": "workspace:*",
+    "@cobusgreyling/outerloop-ledger": "workspace:*",
+    "@cobusgreyling/outerloop-policy": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^26.0.0",
+    "typescript": "^6.0.3",
+    "vitest": "^3.2.4"
+  },
+  "license": "MIT"
+}

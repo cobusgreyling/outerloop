@@ -11,5 +11,8 @@ describe("createProgram", () => {
     expect(names).toContain("ledger");
     expect(names).toContain("harness");
     expect(names).toContain("taste");
+    expect(names).toContain("dashboard");
+    expect(names).toContain("audit");
+    expect(names).toContain("brownfield");
   });
 });

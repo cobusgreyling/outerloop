@@ -1,0 +1,28 @@
+{
+  "name": "@cobusgreyling/outerloop-audit",
+  "version": "0.1.0",
+  "description": "Self-governance audit scoring for outerloop dogfooding",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": { ".": { "types": "./dist/index.d.ts", "import": "./dist/index.js" } },
+  "files": ["dist"],
+  "scripts": { "build": "tsc", "test": "vitest run", "clean": "rm -rf dist" },
+  "dependencies": {
+    "@cobusgreyling/outerloop-core": "workspace:*",
+    "@cobusgreyling/outerloop-evidence": "workspace:*",
+    "@cobusgreyling/outerloop-ledger": "workspace:*",
+    "@cobusgreyling/outerloop-harness": "workspace:*",
+    "@cobusgreyling/outerloop-policy": "workspace:*",
+    "@cobusgreyling/outerloop-taste": "workspace:*",
+    "@cobusgreyling/outerloop-attention": "workspace:*",
+    "@cobusgreyling/outerloop-cognitive": "workspace:*",
+    "chalk": "^5.4.1"
+  },
+  "devDependencies": {
+    "@types/node": "^26.0.0",
+    "typescript": "^6.0.3",
+    "vitest": "^3.2.4"
+  },
+  "license": "MIT"
+}

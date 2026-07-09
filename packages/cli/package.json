@@ -24,6 +24,11 @@
     "@cobusgreyling/outerloop-taste": "workspace:*",
     "@cobusgreyling/outerloop-policy": "workspace:*",
     "@cobusgreyling/outerloop-integrate": "workspace:*",
+    "@cobusgreyling/outerloop-cognitive": "workspace:*",
+    "@cobusgreyling/outerloop-harness": "workspace:*",
+    "@cobusgreyling/outerloop-attention": "workspace:*",
+    "@cobusgreyling/outerloop-brownfield": "workspace:*",
+    "@cobusgreyling/outerloop-audit": "workspace:*",
     "chalk": "^5.4.1",
     "commander": "^14.0.0"
   },

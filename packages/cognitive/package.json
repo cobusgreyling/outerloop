@@ -1,0 +1,22 @@
+{
+  "name": "@cobusgreyling/outerloop-cognitive",
+  "version": "0.1.0",
+  "description": "Cognitive debt estimators and understanding checkpoints",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": { ".": { "types": "./dist/index.d.ts", "import": "./dist/index.js" } },
+  "files": ["dist"],
+  "scripts": { "build": "tsc", "test": "vitest run", "clean": "rm -rf dist" },
+  "dependencies": {
+    "@cobusgreyling/outerloop-core": "workspace:*",
+    "@cobusgreyling/outerloop-evidence": "workspace:*",
+    "@cobusgreyling/outerloop-ledger": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^26.0.0",
+    "typescript": "^6.0.3",
+    "vitest": "^3.2.4"
+  },
+  "license": "MIT"
+}

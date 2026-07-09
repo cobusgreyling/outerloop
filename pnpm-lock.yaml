@@ -15,7 +15,7 @@ importers:
         specifier: ^6.0.3
         version: 6.0.3
 
-  packages/cli:
+  packages/attention:
     dependencies:
       '@cobusgreyling/outerloop-core':
         specifier: workspace:*
@@ -23,6 +23,102 @@ importers:
       '@cobusgreyling/outerloop-evidence':
         specifier: workspace:*
         version: link:../evidence
+      '@cobusgreyling/outerloop-ledger':
+        specifier: workspace:*
+        version: link:../ledger
+      '@cobusgreyling/outerloop-policy':
+        specifier: workspace:*
+        version: link:../policy
+    devDependencies:
+      '@types/node':
+        specifier: ^26.0.0
+        version: 26.1.1
+      typescript:
+        specifier: ^6.0.3
+        version: 6.0.3
+      vitest:
+        specifier: ^3.2.4
+        version: 3.2.7(@types/node@26.1.1)(yaml@2.9.0)
+
+  packages/audit:
+    dependencies:
+      '@cobusgreyling/outerloop-attention':
+        specifier: workspace:*
+        version: link:../attention
+      '@cobusgreyling/outerloop-cognitive':
+        specifier: workspace:*
+        version: link:../cognitive
+      '@cobusgreyling/outerloop-core':
+        specifier: workspace:*
+        version: link:../core
+      '@cobusgreyling/outerloop-evidence':
+        specifier: workspace:*
+        version: link:../evidence
+      '@cobusgreyling/outerloop-harness':
+        specifier: workspace:*
+        version: link:../harness
+      '@cobusgreyling/outerloop-ledger':
+        specifier: workspace:*
+        version: link:../ledger
+      '@cobusgreyling/outerloop-policy':
+        specifier: workspace:*
+        version: link:../policy
+      '@cobusgreyling/outerloop-taste':
+        specifier: workspace:*
+        version: link:../taste
+      chalk:
+        specifier: ^5.4.1
+        version: 5.6.2
+    devDependencies:
+      '@types/node':
+        specifier: ^26.0.0
+        version: 26.1.1
+      typescript:
+        specifier: ^6.0.3
+        version: 6.0.3
+      vitest:
+        specifier: ^3.2.4
+        version: 3.2.7(@types/node@26.1.1)(yaml@2.9.0)
+
+  packages/brownfield:
+    dependencies:
+      '@cobusgreyling/outerloop-core':
+        specifier: workspace:*
+        version: link:../core
+    devDependencies:
+      '@types/node':
+        specifier: ^26.0.0
+        version: 26.1.1
+      typescript:
+        specifier: ^6.0.3
+        version: 6.0.3
+      vitest:
+        specifier: ^3.2.4
+        version: 3.2.7(@types/node@26.1.1)(yaml@2.9.0)
+
+  packages/cli:
+    dependencies:
+      '@cobusgreyling/outerloop-attention':
+        specifier: workspace:*
+        version: link:../attention
+      '@cobusgreyling/outerloop-audit':
+        specifier: workspace:*
+        version: link:../audit
+      '@cobusgreyling/outerloop-brownfield':
+        specifier: workspace:*
+        version: link:../brownfield
+      '@cobusgreyling/outerloop-cognitive':
+        specifier: workspace:*
+        version: link:../cognitive
+      '@cobusgreyling/outerloop-core':
+        specifier: workspace:*
+        version: link:../core
+      '@cobusgreyling/outerloop-evidence':
+        specifier: workspace:*
+        version: link:../evidence
+      '@cobusgreyling/outerloop-harness':
+        specifier: workspace:*
+        version: link:../harness
       '@cobusgreyling/outerloop-integrate':
         specifier: workspace:*
         version: link:../integrate
@@ -55,6 +151,28 @@ importers:
         specifier: ^3.2.4
         version: 3.2.7(@types/node@26.1.1)(yaml@2.9.0)
 
+  packages/cognitive:
+    dependencies:
+      '@cobusgreyling/outerloop-core':
+        specifier: workspace:*
+        version: link:../core
+      '@cobusgreyling/outerloop-evidence':
+        specifier: workspace:*
+        version: link:../evidence
+      '@cobusgreyling/outerloop-ledger':
+        specifier: workspace:*
+        version: link:../ledger
+    devDependencies:
+      '@types/node':
+        specifier: ^26.0.0
+        version: 26.1.1
+      typescript:
+        specifier: ^6.0.3
+        version: 6.0.3
+      vitest:
+        specifier: ^3.2.4
+        version: 3.2.7(@types/node@26.1.1)(yaml@2.9.0)
+
   packages/core:
     dependencies:
       zod:
@@ -72,6 +190,22 @@ importers:
         version: 3.2.7(@types/node@26.1.1)(yaml@2.9.0)
 
   packages/evidence:
+    dependencies:
+      '@cobusgreyling/outerloop-core':
+        specifier: workspace:*
+        version: link:../core
+    devDependencies:
+      '@types/node':
+        specifier: ^26.0.0
+        version: 26.1.1
+      typescript:
+        specifier: ^6.0.3
+        version: 6.0.3
+      vitest:
+        specifier: ^3.2.4
+        version: 3.2.7(@types/node@26.1.1)(yaml@2.9.0)
+
+  packages/harness:
     dependencies:
       '@cobusgreyling/outerloop-core':
         specifier: workspace:*

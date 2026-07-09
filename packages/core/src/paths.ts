@@ -29,3 +29,11 @@ export function getTasteDir(cwd = process.cwd()): string {
 export function getPolicyDir(cwd = process.cwd()): string {
   return path.join(getOuterloopDir(cwd), "policy");
 }
+
+export function getHarnessDir(cwd = process.cwd()): string {
+  return path.join(getOuterloopDir(cwd), "harness");
+}
+
+export function getBrownfieldDir(cwd = process.cwd()): string {
+  return path.join(getOuterloopDir(cwd), "brownfield");
+}
