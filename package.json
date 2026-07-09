@@ -1,0 +1,40 @@
+{
+  "name": "outerloop",
+  "private": true,
+  "type": "module",
+  "description": "Own the Outer Loop. Evidence → Verdict → Answerability. At industrial scale.",
+  "scripts": {
+    "build": "turbo run build",
+    "test": "turbo run test",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "clean": "turbo run clean && rm -rf node_modules"
+  },
+  "keywords": [
+    "outerloop",
+    "loop-engineering",
+    "agentic-engineering",
+    "evidence",
+    "verdict",
+    "answerability",
+    "governance"
+  ],
+  "author": "Cobus Greyling",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cobusgreyling/outerloop.git"
+  },
+  "homepage": "https://github.com/cobusgreyling/outerloop#readme",
+  "bugs": {
+    "url": "https://github.com/cobusgreyling/outerloop/issues"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "packageManager": "pnpm@10.31.0",
+  "devDependencies": {
+    "turbo": "^2.5.4",
+    "typescript": "^6.0.3"
+  }
+}

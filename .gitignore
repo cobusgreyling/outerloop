@@ -1,0 +1,36 @@
+# Dependencies
+node_modules/
+
+# Build
+dist/
+.turbo/
+*.tsbuildinfo
+
+# Environment
+.env
+.env.local
+
+# IDE / editor
+.idea/
+.vscode/
+*.swp
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs & temp
+*.log
+tmp/
+temp/
+
+# Ledger runtime data (local dev)
+.outerloop/
+ledger-data/
+
+# Agent runtime
+.grok/
+.claude/
+.codex/
+*.session

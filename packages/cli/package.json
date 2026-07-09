@@ -1,0 +1,41 @@
+{
+  "name": "@cobusgreyling/outerloop",
+  "version": "0.1.0",
+  "description": "Own the Outer Loop. Evidence → Verdict → Answerability.",
+  "type": "module",
+  "bin": {
+    "outerloop": "./dist/cli.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "start": "node dist/cli.js",
+    "test": "vitest run",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@cobusgreyling/outerloop-core": "workspace:*",
+    "chalk": "^5.4.1",
+    "commander": "^14.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^26.0.0",
+    "typescript": "^6.0.3",
+    "vitest": "^3.2.4"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cobusgreyling/outerloop.git",
+    "directory": "packages/cli"
+  }
+}
