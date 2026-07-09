@@ -46,12 +46,16 @@ pnpm build && pnpm test && pnpm changeset publish
 1. Create an **Automation** token at [npm Access Tokens](https://www.npmjs.com/settings/tokens)
    - Type: Granular or Classic **Automation**
    - Permissions: read + write for `@cobusgreyling/*` packages
-2. Set the secret:
+2. Set the secret — **either**:
+
+**A)** Manual name (recommended for portability):
 
 ```bash
 gh secret set NPM_TOKEN --repo cobusgreyling/outerloop
 # paste the npm_... token when prompted
 ```
+
+**B)** npm website → token → destination **GitHub Actions** — npm auto-creates a repo secret named `NPM_<id>`. The release workflow falls back to this if `NPM_TOKEN` is unset.
 
 3. Re-run the failed [Release workflow](https://github.com/cobusgreyling/outerloop/actions/workflows/release.yml) or push to `main`.
 

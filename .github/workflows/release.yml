@@ -15,6 +15,9 @@ permissions:
 jobs:
   release:
     runs-on: ubuntu-latest
+    # npm "GitHub Actions" tokens are stored as NPM_<id> — fall back if NPM_TOKEN unset
+    env:
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN || secrets.NPM_KHESAVFAAZSVQD7OTOK8MYZH4NEKCF2XANZM }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -27,6 +30,8 @@ jobs:
           node-version: 22
           cache: pnpm
           registry-url: https://registry.npmjs.org
+        env:
+          NODE_AUTH_TOKEN: ${{ env.NPM_TOKEN }}
 
       - run: pnpm install --frozen-lockfile
       - run: pnpm build
@@ -38,12 +43,11 @@ jobs:
             echo "::error::NPM_TOKEN secret is not set. CI cannot publish to npm."
             echo "Fix: create an Automation token at https://www.npmjs.com/settings/tokens"
             echo "Then: gh secret set NPM_TOKEN --repo cobusgreyling/outerloop"
+            echo "Or link npm → GitHub Actions (creates NPM_<id> secret automatically)"
             echo "See docs/PUBLISHING.md"
             exit 1
           fi
-          echo "NPM_TOKEN is set (length ${#NPM_TOKEN})"
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          echo "npm auth token is set (length ${#NPM_TOKEN})"
 
       - name: Create release PR or publish
         uses: changesets/action@v1
@@ -54,4 +58,4 @@ jobs:
           title: "chore: version packages"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_TOKEN: ${{ env.NPM_TOKEN }}
