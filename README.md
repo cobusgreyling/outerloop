@@ -1,7 +1,3 @@
-<p align="center">
-  <img src="docs/architecture.md" alt="Outerloop" width="480" />
-</p>
-
 # outerloop
 
 **Own the Outer Loop. Evidence → Verdict → Answerability. At industrial scale.**
@@ -36,6 +32,27 @@ Read the [full SPEC.md](./SPEC.md) for the complete vision, concepts (directly m
 ## Status
 
 This is the initial framework specification (July 2026). The implementation is intended to be built iteratively in Cursor using this spec as the source of truth, while dogfooding the outerloop primitives on the development process itself.
+
+## Architecture
+
+See [SPEC.md](./SPEC.md) for the full architecture, data models, and CLI design.
+
+### Packages (planned)
+
+| Package | Responsibility |
+|---------|----------------|
+| `@cobusgreyling/outerloop-core` | Schemas, types, EvidencePackage builder |
+| `@cobusgreyling/outerloop` | CLI entrypoint |
+| `evidence` | Generators, normalizers, risk scorers |
+| `verdict` | Review TUI, decision recorder |
+| `ledger` | Storage, query, provenance reconstruction |
+| `taste` | Capture, versioning, rule matching |
+| `policy` | Backpressure DSL parser and enforcer |
+| `harness` | Boundary spec parser and validator |
+| `cognitive` | Debt estimators, narrative generators |
+| `integrate` | loop-engineering, Cursor, GitHub adapters |
+
+Phase 0 ships `core` and `cli`. Other packages are scaffolded for Phase 1+.
 
 ## Contributing Philosophy
 
