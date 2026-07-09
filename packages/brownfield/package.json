@@ -1,13 +1,24 @@
 {
   "name": "@cobusgreyling/outerloop-brownfield",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Brownfield introspection and legacy stewardship helpers",
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  "exports": { ".": { "types": "./dist/index.d.ts", "import": "./dist/index.js" } },
-  "files": ["dist"],
-  "scripts": { "build": "tsc", "test": "vitest run", "clean": "rm -rf dist" },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest run",
+    "clean": "rm -rf dist"
+  },
   "dependencies": {
     "@cobusgreyling/outerloop-core": "workspace:*"
   },

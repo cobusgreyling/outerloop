@@ -1,7 +1,15 @@
 {
   "name": "@cobusgreyling/outerloop-integrate",
-  "version": "0.1.0",
-  "description": "Integration adapters for loop-engineering, Cursor, and GitHub",
+  "version": "0.1.1",
+  "description": "Integration adapters for loop-engineering, Cursor, Claude Code, and GitHub",
+  "keywords": [
+    "outerloop",
+    "cursor",
+    "claude-code",
+    "loop-engineering",
+    "agentic-engineering",
+    "integration"
+  ],
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -11,7 +19,9 @@
       "import": "./dist/index.js"
     }
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsc",
     "test": "vitest run",

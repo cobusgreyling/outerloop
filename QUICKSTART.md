@@ -34,11 +34,13 @@ pnpm outerloop ledger why <evidence-id> \
 
 ## Use on your own project
 
-Once published to npm (or linked from a local build):
+Install from npm:
 
 ```bash
 npx @cobusgreyling/outerloop init
-npx @cobusgreyling/outerloop init --with-loop-engineering --with-cursor
+npx @cobusgreyling/outerloop init --with-cursor
+npx @cobusgreyling/outerloop init --with-claude-code
+npx @cobusgreyling/outerloop init --with-loop-engineering
 ```
 
 Or from a local clone:

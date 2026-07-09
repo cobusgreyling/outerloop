@@ -1,4 +1,9 @@
-# outerloop
+# outerloop — Full specification
+
+> **New here?** Read [docs/concepts.md](docs/concepts.md) first (5 min).  
+> **Daily use?** See [docs/cli.md](docs/cli.md).  
+> **Integrating?** See [docs/api.md](docs/api.md).  
+> Index: [docs/spec/README.md](docs/spec/README.md)
 
 **Own the Outer Loop. Evidence → Verdict → Answerability. At industrial scale.**
 

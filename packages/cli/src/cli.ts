@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 import { fileURLToPath } from "node:url";
+import { isCliEntrypoint } from "./entrypoint.js";
 import { Command } from "commander";
 import chalk from "chalk";
 import { registerEvidenceCommands } from "./commands/evidence.js";
@@ -14,7 +15,7 @@ import { registerScaleCommands } from "./commands/scale.js";
 import { registerCoordinationCommands } from "./commands/coordination-cmd.js";
 import { registerInitCommand } from "./commands/init-cmd.js";
 
-const VERSION = "0.3.0";
+const VERSION = "0.3.2";
 
 export function createProgram(): Command {
   const program = new Command();
@@ -46,6 +47,6 @@ export function run(argv: string[] = process.argv): void {
   program.parse(argv);
 }
 
-if (process.argv[1] === fileURLToPath(import.meta.url)) {
+if (isCliEntrypoint(fileURLToPath(import.meta.url))) {
   run();
 }

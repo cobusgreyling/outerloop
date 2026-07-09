@@ -1,6 +1,6 @@
 {
   "name": "@cobusgreyling/outerloop-evidence",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Evidence generators, normalizers, and loop-engineering adapters",
   "type": "module",
   "main": "./dist/index.js",
@@ -11,7 +11,9 @@
       "import": "./dist/index.js"
     }
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsc",
     "test": "vitest run",

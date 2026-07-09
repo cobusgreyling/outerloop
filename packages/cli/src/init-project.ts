@@ -13,6 +13,7 @@ import { createHarnessSpec, saveHarnessSpec } from "@cobusgreyling/outerloop-har
 import type { BoundaryLevel } from "@cobusgreyling/outerloop-harness";
 import {
   integrateLoopEngineering,
+  setupClaudeCode,
   setupCursor,
 } from "@cobusgreyling/outerloop-integrate";
 import {
@@ -29,6 +30,7 @@ export interface InitProjectOptions {
   boundary?: BoundaryLevel;
   withLoopEngineering?: boolean;
   withCursor?: boolean;
+  withClaudeCode?: boolean;
   withCoordination?: boolean;
 }
 
@@ -216,6 +218,12 @@ outerloop audit
   if (options.withCursor) {
     const result = await setupCursor({ projectRoot: cwd });
     integrations.push("cursor");
+    filesWritten.push(...result.filesWritten);
+  }
+
+  if (options.withClaudeCode) {
+    const result = await setupClaudeCode({ projectRoot: cwd });
+    integrations.push("claude-code");
     filesWritten.push(...result.filesWritten);
   }
 

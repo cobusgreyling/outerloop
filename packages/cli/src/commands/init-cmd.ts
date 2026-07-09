@@ -16,6 +16,7 @@ export function registerInitCommand(program: Command): void {
     )
     .option("--with-loop-engineering", "Install loop-engineering integration hooks")
     .option("--with-cursor", "Install Cursor rules for verdict-aware development")
+    .option("--with-claude-code", "Install Claude Code CLAUDE.md and post-run helpers")
     .option("--no-coordination", "Skip multi-loop coordination registry")
     .action(async (options) => {
       const cwd = path.resolve(options.projectRoot);
@@ -36,6 +37,7 @@ export function registerInitCommand(program: Command): void {
           boundary,
           withLoopEngineering: options.withLoopEngineering,
           withCursor: options.withCursor,
+          withClaudeCode: options.withClaudeCode,
           withCoordination: options.coordination,
         });
 

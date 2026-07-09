@@ -19,8 +19,8 @@ Options:
 outerloop init \
   --name my-service \
   --boundary moderate \
-  --with-loop-engineering \
   --with-cursor
+# or: --with-claude-code  --with-loop-engineering
 ```
 
 | Flag | Effect |
@@ -28,8 +28,9 @@ outerloop init \
 | `--boundary strict` | Tighter agent tool whitelist; all merges need human verdict |
 | `--boundary moderate` | Default — balanced inner/outer separation |
 | `--boundary permissive` | Looser agent autonomy; production still gated |
-| `--with-loop-engineering` | Writes `outerloop.config.yaml`, post-run hook, GitHub workflow |
 | `--with-cursor` | Installs `.cursor/rules/outerloop.mdc` and verdict-aware prompts |
+| `--with-claude-code` | Writes `CLAUDE.md` and `.claude/` post-run helpers |
+| `--with-loop-engineering` | Writes `outerloop.config.yaml`, post-run hook, GitHub workflow |
 | `--no-coordination` | Skip multi-loop coordination registry |
 
 ## What `init` creates
@@ -63,13 +64,35 @@ This wires a post-run hook that auto-packages evidence from `loop-run-log.md` an
 
 ```bash
 outerloop cursor setup
+# or: outerloop integrate cursor
 ```
 
 Installs verdict-aware rules so Composer sessions respect evidence/verdict/ledger workflow.
 
+### Claude Code
+
+```bash
+outerloop integrate claude-code
+```
+
+Writes `CLAUDE.md` and `.claude/post-run-outerloop.sh` for evidence packaging after sessions.
+
 ## CI hooks
 
-After `integrate loop-engineering`, a GitHub workflow template is written to `.github/workflows/outerloop-evidence.yml`. Customize workflow names to match your loop-engineering patterns.
+### Reusable GitHub Action (any project)
+
+```yaml
+jobs:
+  evidence:
+    uses: cobusgreyling/outerloop/.github/workflows/evidence-gate.yml@main
+    with:
+      run-id: ${{ github.sha }}
+      evidence-source: custom-harness
+```
+
+See [github-action.md](./github-action.md).
+
+After `integrate loop-engineering`, a workflow template is also written to `.github/workflows/outerloop-evidence.yml`.
 
 For any CI, the minimum viable gate is:
 

@@ -1,7 +1,19 @@
 {
   "name": "@cobusgreyling/outerloop",
-  "version": "0.3.0",
+  "version": "0.3.2",
   "description": "Own the Outer Loop. Evidence → Verdict → Answerability.",
+  "keywords": [
+    "outerloop",
+    "ai-agents",
+    "agentic-engineering",
+    "governance",
+    "evidence",
+    "verdict",
+    "answerability",
+    "human-in-the-loop",
+    "cli",
+    "audit-trail"
+  ],
   "type": "module",
   "bin": {
     "outerloop": "./dist/cli.js"

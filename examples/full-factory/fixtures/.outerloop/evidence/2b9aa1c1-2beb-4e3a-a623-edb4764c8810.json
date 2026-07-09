@@ -1,0 +1,277 @@
+{
+  "id": "2b9aa1c1-2beb-4e3a-a623-edb4764c8810",
+  "runId": "2026-07-08T10:01:59Z",
+  "loopId": "daily-triage",
+  "timestamp": "2026-07-09T13:14:15.563Z",
+  "source": "loop-engineering",
+  "plan": {
+    "goal": "daily-triage: report-only",
+    "steps": [
+      "Parse loop-run-log and STATE.md",
+      "Collect git diffs and test output",
+      "Score risk and generate summaries"
+    ],
+    "assumptions": [
+      "STATE.md last run: 2026-07-08T10:01:59Z"
+    ]
+  },
+  "implementation": {
+    "diffs": [
+      {
+        "path": ".github/ISSUE_TEMPLATE/config.yml",
+        "hunks": "",
+        "additions": 6,
+        "deletions": 0
+      },
+      {
+        "path": ".github/workflows/ci.yml",
+        "hunks": "",
+        "additions": 2,
+        "deletions": 1
+      },
+      {
+        "path": "QUICKSTART.md",
+        "hunks": "",
+        "additions": 4,
+        "deletions": 2
+      },
+      {
+        "path": "README.md",
+        "hunks": "",
+        "additions": 86,
+        "deletions": 64
+      },
+      {
+        "path": "ROADMAP.md",
+        "hunks": "",
+        "additions": 8,
+        "deletions": 0
+      },
+      {
+        "path": "SPEC.md",
+        "hunks": "",
+        "additions": 6,
+        "deletions": 1
+      },
+      {
+        "path": "docs/adopting.md",
+        "hunks": "",
+        "additions": 26,
+        "deletions": 3
+      },
+      {
+        "path": "docs/architecture.md",
+        "hunks": "",
+        "additions": 8,
+        "deletions": 1
+      },
+      {
+        "path": "examples/README.md",
+        "hunks": "",
+        "additions": 1,
+        "deletions": 0
+      },
+      {
+        "path": "examples/full-factory/fixtures/.outerloop/evidence/index.json",
+        "hunks": "",
+        "additions": 8,
+        "deletions": 0
+      },
+      {
+        "path": "examples/full-factory/fixtures/.outerloop/ledger/entries.jsonl",
+        "hunks": "",
+        "additions": 1,
+        "deletions": 0
+      },
+      {
+        "path": "examples/full-factory/fixtures/.outerloop/ledger/index.json",
+        "hunks": "",
+        "additions": 10,
+        "deletions": 0
+      },
+      {
+        "path": "examples/full-factory/fixtures/.outerloop/manifests/deadbeef.json",
+        "hunks": "",
+        "additions": 4,
+        "deletions": 4
+      },
+      {
+        "path": "packages/cli/package.json",
+        "hunks": "",
+        "additions": 13,
+        "deletions": 1
+      },
+      {
+        "path": "packages/cli/src/cli.ts",
+        "hunks": "",
+        "additions": 3,
+        "deletions": 2
+      },
+      {
+        "path": "packages/cli/src/commands/init-cmd.ts",
+        "hunks": "",
+        "additions": 2,
+        "deletions": 0
+      },
+      {
+        "path": "packages/cli/src/commands/integrate-cmd.ts",
+        "hunks": "",
+        "additions": 10,
+        "deletions": 1
+      },
+      {
+        "path": "packages/cli/src/init-project.ts",
+        "hunks": "",
+        "additions": 8,
+        "deletions": 0
+      },
+      {
+        "path": "packages/core/package.json",
+        "hunks": "",
+        "additions": 8,
+        "deletions": 0
+      },
+      {
+        "path": "packages/integrate/package.json",
+        "hunks": "",
+        "additions": 9,
+        "deletions": 1
+      },
+      {
+        "path": "packages/integrate/src/index.ts",
+        "hunks": "",
+        "additions": 2,
+        "deletions": 1
+      },
+      {
+        "path": "patterns/README.md",
+        "hunks": "",
+        "additions": 6,
+        "deletions": 1
+      },
+      {
+        "path": "scripts/publish-to-npm.sh",
+        "hunks": "",
+        "additions": 6,
+        "deletions": 3
+      },
+      {
+        "path": "stories/README.md",
+        "hunks": "",
+        "additions": 5,
+        "deletions": 1
+      }
+    ],
+    "filesChanged": [
+      ".github/ISSUE_TEMPLATE/config.yml",
+      ".github/workflows/ci.yml",
+      "QUICKSTART.md",
+      "README.md",
+      "ROADMAP.md",
+      "SPEC.md",
+      "docs/adopting.md",
+      "docs/architecture.md",
+      "examples/README.md",
+      "examples/full-factory/fixtures/.outerloop/evidence/index.json",
+      "examples/full-factory/fixtures/.outerloop/ledger/entries.jsonl",
+      "examples/full-factory/fixtures/.outerloop/ledger/index.json",
+      "examples/full-factory/fixtures/.outerloop/manifests/deadbeef.json",
+      "packages/cli/package.json",
+      "packages/cli/src/cli.ts",
+      "packages/cli/src/commands/init-cmd.ts",
+      "packages/cli/src/commands/integrate-cmd.ts",
+      "packages/cli/src/init-project.ts",
+      "packages/core/package.json",
+      "packages/integrate/package.json",
+      "packages/integrate/src/index.ts",
+      "patterns/README.md",
+      "scripts/publish-to-npm.sh",
+      "stories/README.md"
+    ]
+  },
+  "verification": {
+    "tests": [
+      {
+        "name": "parses JSONL entries",
+        "status": "pass",
+        "durationMs": 4
+      },
+      {
+        "name": "resolves latest and specific run ids",
+        "status": "pass",
+        "durationMs": 1
+      },
+      {
+        "name": "scores report-only runs low",
+        "status": "pass",
+        "durationMs": 2
+      },
+      {
+        "name": "elevates score for sensitive paths and failures",
+        "status": "pass",
+        "durationMs": 1
+      },
+      {
+        "name": "registers core command groups",
+        "status": "pass",
+        "durationMs": 3
+      }
+    ]
+  },
+  "observability": {
+    "logs": [
+      "Loaded loop-run-log.md"
+    ],
+    "traces": [
+      {
+        "id": "2026-07-08T10:01:59Z",
+        "label": "daily-triage run",
+        "timestamp": "2026-07-08T10:01:59.000Z",
+        "detail": "outcome=report-only, items=1"
+      }
+    ],
+    "cost": {
+      "input": 36400,
+      "output": 15600,
+      "total": 52000
+    }
+  },
+  "riskAssessment": {
+    "score": 6,
+    "factors": [
+      "Large change set (24 files)"
+    ],
+    "mitigations": [
+      "All parsed tests passed"
+    ]
+  },
+  "summaries": {
+    "executive": "daily-triage run proposes changes to 24 file(s) (risk 6/10).",
+    "technical": "Pattern: daily-triage\nOutcome: report-only\nItems found: 1\nActions taken: 1\nEscalations: 0\nHigh priority: - [ ] #142 — Flaky test in ci-sweeper workflow; Loop action: flagged for human review; Human decision: (pending)",
+    "decisionRelevant": "Review diffs for: .github/ISSUE_TEMPLATE/config.yml, .github/workflows/ci.yml, QUICKSTART.md, README.md, ROADMAP.md… Risk score: 6/10"
+  },
+  "rawArtifacts": {
+    "stateFile": "STATE.md",
+    "runLogFile": "loop-run-log.md",
+    "commitSha": "d2c16f8991f677962f92c46c90579ca847e4b3be",
+    "runEntry": {
+      "run_id": "2026-07-08T10:01:59Z",
+      "pattern": "daily-triage",
+      "duration_s": 10,
+      "items_found": 1,
+      "actions_taken": 1,
+      "escalations": 0,
+      "tokens_estimate": 52000,
+      "outcome": "report-only"
+    },
+    "stateSummary": {
+      "highPriorityCount": 3,
+      "watchListCount": 1
+    }
+  },
+  "harnessBoundary": {
+    "name": "loop-engineering",
+    "version": "1.0.0",
+    "path": "/Users/cobusgreyling/outerloop/examples/full-factory/fixtures"
+  }
+}

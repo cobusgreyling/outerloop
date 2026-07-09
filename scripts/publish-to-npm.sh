@@ -17,6 +17,7 @@ if ! npm whoami >/dev/null 2>&1; then
 fi
 
 echo "npm user: $(npm whoami)"
+echo "npm version: $(npm --version) (v11+ recommended for passkey/browser auth)"
 echo ""
 
 echo "=== build + test ==="
@@ -28,10 +29,12 @@ echo ""
 echo "=== publish all @cobusgreyling/outerloop* packages ==="
 if [[ -n "${NPM_OTP:-}" ]]; then
   pnpm changeset publish --otp "$NPM_OTP"
-else
-  echo "If your npm account has 2FA, publish will fail with EOTP."
-  echo "Run: NPM_OTP=<6-digit-code> bash scripts/publish-to-npm.sh"
+elif [[ -n "${NPM_TOKEN:-}" ]]; then
   pnpm changeset publish
+else
+  echo "Publishing one package at a time — approve each browser/passkey prompt."
+  echo "Tip: granular token with bypass 2FA avoids repeated prompts."
+  pnpm -r publish --access public --no-git-checks
 fi
 
 echo ""

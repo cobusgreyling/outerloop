@@ -1,6 +1,6 @@
 {
   "name": "@cobusgreyling/outerloop-ledger",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Ledger storage, query engine, and provenance reconstruction",
   "type": "module",
   "main": "./dist/index.js",
@@ -11,7 +11,9 @@
       "import": "./dist/index.js"
     }
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsc",
     "test": "vitest run",

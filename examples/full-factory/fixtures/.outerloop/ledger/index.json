@@ -19,6 +19,16 @@
       "owner": "demo-user",
       "timestamp": "2026-07-09T10:59:47.322Z",
       "decision": "ship"
+    },
+    {
+      "id": "eeeb4689-5865-46c1-a8c6-698c52e3e914",
+      "verdictId": "a01c81bc-4e3a-4243-8145-7b5569f64c2b",
+      "evidenceId": "97fb7345-6849-41a1-bb68-f9446bf6824b",
+      "commitSha": "deadbeef",
+      "runId": "2026-07-08T10:01:59Z",
+      "owner": "demo-user",
+      "timestamp": "2026-07-09T13:08:13.478Z",
+      "decision": "ship"
     }
   ]
 }

@@ -57,8 +57,15 @@ Projects initialized with `outerloop init` store artifacts under `.outerloop/`:
 - **Turborepo** — `build`, `test`, `dev` pipelines
 - **Changesets** — versioned npm releases for `@cobusgreyling/outerloop`
 
+## Package map (all modules)
+
+See the full table in this file's [Packages](#packages) section above. The README intentionally omits the 14-package breakdown — start with [concepts.md](./concepts.md) instead.
+
 ## Further reading
 
+- [concepts.md](./concepts.md) — 5-minute concept guide
+- [cli.md](./cli.md) — command reference
+- [api.md](./api.md) — programmatic integration
 - [QUICKSTART.md](../QUICKSTART.md) — try the CLI in five minutes
-- [docs/adopting.md](./adopting.md) — add outerloop to your repo
+- [adopting.md](./adopting.md) — add outerloop to your repo
 - [SPEC.md](../SPEC.md) — full specification

@@ -58,8 +58,20 @@ backpressure:
 ```bash
 pnpm build && pnpm test
 pnpm demo
+bash scripts/smoke-test-published.sh   # validates packed tarballs (CI)
 pnpm outerloop audit --project-root .
 ```
+
+## Release answerability (v0.3.1+)
+
+Significant releases should be reconstructable:
+
+```bash
+outerloop ledger why v0.3.1
+# or: outerloop ledger why <release-pr-evidence-id>
+```
+
+See [stories/001-v0.3.1-release.md](./stories/001-v0.3.1-release.md) for the first dogfooded adoption release.
 
 ## Stories
 

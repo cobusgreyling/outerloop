@@ -1,5 +1,11 @@
 blank_issues_enabled: false
 contact_links:
+  - name: Questions & ideas (Discussions)
+    url: https://github.com/cobusgreyling/outerloop/discussions
+    about: Ask adoption questions, share harness integrations, propose patterns
+  - name: Good first issues
+    url: https://github.com/cobusgreyling/outerloop/blob/main/docs/good-first-issues.md
+    about: Starter tasks for new contributors
   - name: Security vulnerability
     url: https://github.com/cobusgreyling/outerloop/blob/main/SECURITY.md
     about: Report security issues privately — do not open a public issue

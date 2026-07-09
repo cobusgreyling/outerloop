@@ -20,6 +20,14 @@ All MVP phases complete. See git history for Phase 0–3 deliverables.
 - [x] QUICKSTART.md, examples index, adopting guide
 - [x] Dev Container for zero-setup clone-and-run
 
+## v0.3.1 ✅ (adoption)
+
+- [x] Fix `npx outerloop` bin symlink entrypoint
+- [x] Published-package smoke test in CI
+- [x] Claude Code integration (`init --with-claude-code`)
+- [x] Reusable GitHub Action (`evidence-gate.yml`)
+- [x] Adoption docs: concepts, CLI, API, vs-alternatives, patterns, stories
+
 ## Future / v3
 
 - [ ] Hosted dashboard (optional cloud sync)

@@ -1,7 +1,15 @@
 {
   "name": "@cobusgreyling/outerloop-core",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Core types, Zod schemas, and EvidencePackage builder for outerloop",
+  "keywords": [
+    "outerloop",
+    "evidence",
+    "agentic-engineering",
+    "governance",
+    "zod",
+    "schemas"
+  ],
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",

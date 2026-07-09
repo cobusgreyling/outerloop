@@ -1,14 +1,19 @@
 {
   "name": "@cobusgreyling/outerloop-dashboard",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Governance dashboard — text, Ink TUI, and web",
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
-    ".": { "types": "./dist/index.d.ts", "import": "./dist/index.js" }
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsc",
     "test": "vitest run",

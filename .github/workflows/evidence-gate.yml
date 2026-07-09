@@ -1,0 +1,78 @@
+name: outerloop Evidence Gate
+
+on:
+  workflow_call:
+    inputs:
+      run-id:
+        description: Agent run ID to package (default latest)
+        required: false
+        type: string
+        default: latest
+      project-root:
+        description: Project root containing .outerloop/
+        required: false
+        type: string
+        default: .
+      evidence-source:
+        description: Evidence source adapter (loop-engineering, cursor, claude-code, custom-harness, manual)
+        required: false
+        type: string
+        default: custom-harness
+      outerloop-version:
+        description: npm version of @cobusgreyling/outerloop to install
+        required: false
+        type: string
+        default: latest
+      require-verdict:
+        description: Fail if no ship verdict exists for packaged evidence
+        required: false
+        type: boolean
+        default: false
+    outputs:
+      evidence-id:
+        description: Packaged evidence ID
+        value: ${{ jobs.gate.outputs.evidence-id }}
+      risk-score:
+        description: Evidence risk score
+        value: ${{ jobs.gate.outputs.risk-score }}
+
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    outputs:
+      evidence-id: ${{ steps.package.outputs.evidence-id }}
+      risk-score: ${{ steps.package.outputs.risk-score }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install outerloop CLI
+        run: npm install -g @cobusgreyling/outerloop@${{ inputs.outerloop-version }}
+
+      - name: Verify CLI
+        run: outerloop --version
+
+      - name: Package evidence
+        id: package
+        working-directory: ${{ inputs.project-root }}
+        run: |
+          OUT="$(mktemp)"
+          outerloop evidence package \
+            --run-id "${{ inputs.run-id }}" \
+            --from "${{ inputs.evidence-source }}" \
+            --project-root . \
+            --output "$OUT"
+          EVIDENCE_ID=$(node -e "console.log(JSON.parse(require('fs').readFileSync(process.argv[1],'utf8')).id)" "$OUT")
+          RISK=$(node -e "console.log(JSON.parse(require('fs').readFileSync(process.argv[1],'utf8')).riskAssessment.score)" "$OUT")
+          echo "evidence-id=$EVIDENCE_ID" >> "$GITHUB_OUTPUT"
+          echo "risk-score=$RISK" >> "$GITHUB_OUTPUT"
+          echo "Packaged evidence $EVIDENCE_ID (risk $RISK)"
+
+      - name: Require verdict (optional)
+        if: inputs.require-verdict == true
+        working-directory: ${{ inputs.project-root }}
+        run: |
+          outerloop ledger why "${{ steps.package.outputs.evidence-id }}" --project-root .

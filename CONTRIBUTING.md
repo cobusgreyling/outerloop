@@ -11,7 +11,7 @@ Thank you for helping build the governance layer for agentic engineering.
 
 ## Where to start
 
-1. Browse [open issues](https://github.com/cobusgreyling/outerloop/issues) — look for `good first issue`.
+1. Read [Contributor start here](https://github.com/cobusgreyling/outerloop/discussions/19) and browse [good first issues](docs/good-first-issues.md) / [open issues](https://github.com/cobusgreyling/outerloop/issues?q=label%3A%22good+first+issue%22).
 2. Read [ROADMAP.md](./ROADMAP.md) for planned v3 work.
 3. Run the five-minute loop in [QUICKSTART.md](./QUICKSTART.md).
 4. Read [SPEC.md](./SPEC.md) before substantial schema or CLI changes.

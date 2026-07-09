@@ -56,4 +56,20 @@ describe("initProject", () => {
     await expect(fs.access(path.join(projectRoot, "outerloop.config.yaml"))).resolves.toBeUndefined();
     await expect(fs.access(path.join(projectRoot, ".cursor/rules/outerloop.mdc"))).resolves.toBeUndefined();
   });
+
+  it("installs Claude Code integration", async () => {
+    const projectRoot = await makeTempDir();
+
+    const result = await initProject({
+      projectRoot,
+      withClaudeCode: true,
+      withCoordination: false,
+    });
+
+    expect(result.integrations).toContain("claude-code");
+    await expect(fs.access(path.join(projectRoot, "CLAUDE.md"))).resolves.toBeUndefined();
+    await expect(
+      fs.access(path.join(projectRoot, ".claude/post-run-outerloop.sh")),
+    ).resolves.toBeUndefined();
+  });
 });

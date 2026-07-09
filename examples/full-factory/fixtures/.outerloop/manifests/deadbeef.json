@@ -1,9 +1,9 @@
 {
-  "verdictId": "f16acb0c-eca7-4dc8-a179-4d3794e33a4a",
-  "evidenceId": "800fe134-386e-47c4-9cef-8ac75d0324a9",
+  "verdictId": "a01c81bc-4e3a-4243-8145-7b5569f64c2b",
+  "evidenceId": "97fb7345-6849-41a1-bb68-f9446bf6824b",
   "decision": "ship",
   "rationale": "Report-only daily triage: no code changes, tests pass.",
   "owner": "demo-user",
-  "timestamp": "2026-07-09T10:29:52.986Z",
-  "ledgerEntryId": "a1402eae-c3a3-48ad-8b76-195363d47d42"
+  "timestamp": "2026-07-09T13:08:13.476Z",
+  "ledgerEntryId": "eeeb4689-5865-46c1-a8c6-698c52e3e914"
 }

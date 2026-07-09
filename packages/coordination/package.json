@@ -1,13 +1,24 @@
 {
   "name": "@cobusgreyling/outerloop-coordination",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Multi-loop coordination registry and collision detection",
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  "exports": { ".": { "types": "./dist/index.d.ts", "import": "./dist/index.js" } },
-  "files": ["dist"],
-  "scripts": { "build": "tsc", "test": "vitest run", "clean": "rm -rf dist" },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest run",
+    "clean": "rm -rf dist"
+  },
   "dependencies": {
     "@cobusgreyling/outerloop-core": "workspace:*",
     "zod": "^3.25.67"

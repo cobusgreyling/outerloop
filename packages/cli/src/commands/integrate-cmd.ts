@@ -3,6 +3,7 @@ import chalk from "chalk";
 import path from "node:path";
 import {
   integrateLoopEngineering,
+  setupClaudeCode,
   setupCursor,
 } from "@cobusgreyling/outerloop-integrate";
 
@@ -10,7 +11,7 @@ export function registerIntegrateCommands(program: Command): void {
   program
     .command("integrate")
     .description("Install integration adapters")
-    .argument("<target>", "loop-engineering | cursor | github")
+    .argument("<target>", "loop-engineering | cursor | claude-code | github")
     .option("--project-root <path>", "Project root", process.cwd())
     .action(async (target: string, options) => {
       const cwd = path.resolve(options.projectRoot);
@@ -34,6 +35,14 @@ export function registerIntegrateCommands(program: Command): void {
           }
           console.log("");
           console.log("  → Cursor rules and verdict-aware composer prompt are ready.");
+        } else if (target === "claude-code") {
+          const result = await setupClaudeCode({ projectRoot: cwd });
+          console.log(chalk.green("Claude Code integration installed:"));
+          for (const f of result.filesWritten) {
+            console.log(chalk.dim(`  ✓ ${f}`));
+          }
+          console.log("");
+          console.log("  → CLAUDE.md and .claude/ helpers are ready.");
         } else if (target === "github") {
           const result = await integrateLoopEngineering({ projectRoot: cwd });
           console.log(chalk.green("GitHub integration (via loop-engineering workflow):"));
