@@ -13,22 +13,22 @@ Implementation phases from [SPEC.md](./SPEC.md). Status as of July 2026.
 
 ## Phase 1 — Evidence + Verdict Core ✅
 
-- [x] Evidence packaging from loop-engineering run artifacts (STATE.md, loop-run-log.md, git diffs, test output)
+- [x] Evidence packaging from loop-engineering run artifacts
 - [x] `outerloop evidence package` with file output and loop-engineering adapter
-- [x] `outerloop verdict review` TUI (summaries, diff preview, risk viz, mandatory rationale)
-- [x] `outerloop verdict issue` for non-interactive verdict recording
-- [x] File-based Ledger (JSONL + index) with `why` reconstruction
+- [x] `outerloop verdict review` TUI with mandatory rationale
+- [x] File-based Ledger with `why` reconstruction
 - [x] Commit manifest attachment for verdicts
-- [x] End-to-end example: daily-triage fixtures → evidence → verdict → ledger
+- [x] End-to-end example
 
-## Phase 2 — Taste + Policy + Integration (next)
+## Phase 2 — Taste + Policy + Integration ✅
 
-- [ ] Taste capture from critique sessions + rule application
-- [ ] YAML policy engine (sampling, escalation)
-- [ ] loop-engineering integration adapter (auto-evidence hooks)
-- [ ] Cursor rules + composer prompt templates
+- [x] Taste capture from critique sessions (`taste capture`, `taste apply`, `taste match`)
+- [x] YAML policy engine with sampling + escalation (`policy set`, `policy evaluate`)
+- [x] loop-engineering integration adapter (config, post-run hook, GitHub workflow)
+- [x] Cursor rules + composer prompt templates (`cursor setup`, `integrate cursor`)
+- [x] Governance context wired into verdict review and issue
 
-## Phase 3 — Cognitive, Harness, Scale
+## Phase 3 — Cognitive, Harness, Scale (next)
 
 - [ ] Cognitive debt tools
 - [ ] Harness boundary specs + enforcement

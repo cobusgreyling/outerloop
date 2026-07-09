@@ -1,0 +1,76 @@
+{
+  "name": "team-default",
+  "version": 1,
+  "description": "Taste profile captured from /Users/cobusgreyling/outerloop/examples/phase2/critique-session.md",
+  "rules": [
+    {
+      "id": "1b2ad2d4-23bb-4bd6-8ed1-8584690f6b1a",
+      "name": "riskScore > 7 or touches auth",
+      "description": "riskScore > 7 or touches auth → escalate to senior owner",
+      "rationale": "Captured from critique: /Users/cobusgreyling/outerloop/examples/phase2/critique-session.md",
+      "when": "riskScore > 7 or touches auth",
+      "action": "escalate",
+      "examples": {
+        "good": [],
+        "bad": []
+      },
+      "version": 1,
+      "provenance": {
+        "capturedFrom": "/Users/cobusgreyling/outerloop/examples/phase2/critique-session.md",
+        "date": "2026-07-09T10:59:46.431Z"
+      }
+    },
+    {
+      "id": "d1023bd5-5f7c-4f98-abe3-19209a455876",
+      "name": "RULE: failing tests must block ship",
+      "description": "RULE: failing tests must block ship",
+      "rationale": "Captured from critique: /Users/cobusgreyling/outerloop/examples/phase2/critique-session.md",
+      "when": "RULE: failing tests must block ship",
+      "action": "block",
+      "examples": {
+        "good": [],
+        "bad": []
+      },
+      "version": 1,
+      "provenance": {
+        "capturedFrom": "/Users/cobusgreyling/outerloop/examples/phase2/critique-session.md",
+        "date": "2026-07-09T10:59:46.431Z"
+      }
+    },
+    {
+      "id": "0c067b41-ba62-4365-b737-6930d0bfe006",
+      "name": "report-only with no code changes",
+      "description": "report-only with no code changes → suggest alternative of weekly human triage review",
+      "rationale": "Captured from critique: /Users/cobusgreyling/outerloop/examples/phase2/critique-session.md",
+      "when": "report-only with no code changes",
+      "action": "suggestAlternative",
+      "examples": {
+        "good": [],
+        "bad": []
+      },
+      "version": 1,
+      "provenance": {
+        "capturedFrom": "/Users/cobusgreyling/outerloop/examples/phase2/critique-session.md",
+        "date": "2026-07-09T10:59:46.431Z"
+      }
+    },
+    {
+      "id": "db7d8186-b4ec-4f9b-b004-d31c98b70869",
+      "name": "Never merge without captured verdict rationale",
+      "description": "Never merge without captured verdict rationale → block",
+      "rationale": "Captured from critique: /Users/cobusgreyling/outerloop/examples/phase2/critique-session.md",
+      "when": "Never merge without captured verdict rationale",
+      "action": "block",
+      "examples": {
+        "good": [],
+        "bad": []
+      },
+      "version": 1,
+      "provenance": {
+        "capturedFrom": "/Users/cobusgreyling/outerloop/examples/phase2/critique-session.md",
+        "date": "2026-07-09T10:59:46.431Z"
+      }
+    }
+  ],
+  "updatedAt": "2026-07-09T10:59:46.433Z"
+}

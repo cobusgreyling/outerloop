@@ -15,6 +15,22 @@
       "timestamp": "2026-07-09T10:29:52.877Z",
       "riskScore": 4,
       "path": "/Users/cobusgreyling/outerloop/examples/full-factory/fixtures/.outerloop/evidence/800fe134-386e-47c4-9cef-8ac75d0324a9.json"
+    },
+    {
+      "id": "d13e12a5-3a98-460b-92ba-8774ed63b548",
+      "runId": "2026-07-08T10:01:59Z",
+      "loopId": "daily-triage",
+      "timestamp": "2026-07-09T10:59:35.701Z",
+      "riskScore": 4,
+      "path": "/Users/cobusgreyling/outerloop/examples/full-factory/fixtures/.outerloop/evidence/d13e12a5-3a98-460b-92ba-8774ed63b548.json"
+    },
+    {
+      "id": "b1d1cae4-09df-41b5-930a-b54d3a4a1777",
+      "runId": "2026-07-08T10:01:59Z",
+      "loopId": "daily-triage",
+      "timestamp": "2026-07-09T10:59:46.957Z",
+      "riskScore": 6,
+      "path": "/Users/cobusgreyling/outerloop/examples/full-factory/fixtures/.outerloop/evidence/b1d1cae4-09df-41b5-930a-b54d3a4a1777.json"
     }
   ]
 }

@@ -3,7 +3,11 @@ import chalk from "chalk";
 import path from "node:path";
 import { VerdictDecisionSchema } from "@cobusgreyling/outerloop-core";
 import { loadEvidencePackage } from "@cobusgreyling/outerloop-evidence";
-import { issueVerdict, reviewEvidence } from "@cobusgreyling/outerloop-verdict";
+import {
+  issueVerdict,
+  reviewEvidence,
+  loadGovernanceContext,
+} from "@cobusgreyling/outerloop-verdict";
 
 export function registerVerdictCommands(program: Command): void {
   const verdict = program
@@ -58,6 +62,7 @@ export function registerVerdictCommands(program: Command): void {
       }
 
       try {
+        const governance = await loadGovernanceContext(evidence, cwd);
         await issueVerdict({
           evidence,
           decision,
@@ -65,6 +70,8 @@ export function registerVerdictCommands(program: Command): void {
           owner: options.owner,
           cwd,
           commitSha: options.commit,
+          tasteRulesApplied: governance.tasteRuleIds,
+          backpressureApplied: governance.backpressureApplied,
         });
       } catch (err) {
         console.error(chalk.red((err as Error).message));

@@ -1,0 +1,9 @@
+{
+  "verdictId": "89ce79cd-c98a-4c43-906b-8a74fe83c3c5",
+  "evidenceId": "b1d1cae4-09df-41b5-930a-b54d3a4a1777",
+  "decision": "ship",
+  "rationale": "Report-only triage with policy sampling pass and no blocking taste rules.",
+  "owner": "demo-user",
+  "timestamp": "2026-07-09T10:59:47.318Z",
+  "ledgerEntryId": "037f5802-4604-4d0c-8fb5-808aae30eec8"
+}

@@ -21,3 +21,11 @@ export function getLedgerDir(cwd = process.cwd()): string {
 export function getManifestsDir(cwd = process.cwd()): string {
   return path.join(getOuterloopDir(cwd), "manifests");
 }
+
+export function getTasteDir(cwd = process.cwd()): string {
+  return path.join(getOuterloopDir(cwd), "taste");
+}
+
+export function getPolicyDir(cwd = process.cwd()): string {
+  return path.join(getOuterloopDir(cwd), "policy");
+}

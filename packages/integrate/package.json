@@ -1,7 +1,7 @@
 {
-  "name": "@cobusgreyling/outerloop-verdict",
+  "name": "@cobusgreyling/outerloop-integrate",
   "version": "0.1.0",
-  "description": "Verdict review TUI and decision recording",
+  "description": "Integration adapters for loop-engineering, Cursor, and GitHub",
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -19,12 +19,7 @@
   },
   "dependencies": {
     "@cobusgreyling/outerloop-core": "workspace:*",
-    "@cobusgreyling/outerloop-evidence": "workspace:*",
-    "@cobusgreyling/outerloop-ledger": "workspace:*",
-    "@cobusgreyling/outerloop-taste": "workspace:*",
-    "@cobusgreyling/outerloop-policy": "workspace:*",
-    "@inquirer/prompts": "^7.5.3",
-    "chalk": "^5.4.1"
+    "yaml": "^2.8.0"
   },
   "devDependencies": {
     "@types/node": "^26.0.0",

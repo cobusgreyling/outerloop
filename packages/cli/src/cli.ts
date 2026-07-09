@@ -7,6 +7,9 @@ import { registerEvidenceCommands } from "./commands/evidence.js";
 import { registerVerdictCommands } from "./commands/verdict.js";
 import { registerLedgerCommands } from "./commands/ledger.js";
 import { registerGovernanceCommands } from "./commands/governance.js";
+import { registerTasteCommands } from "./commands/taste.js";
+import { registerPolicyCommands } from "./commands/policy-cmd.js";
+import { registerIntegrateCommands } from "./commands/integrate-cmd.js";
 
 const VERSION = "0.1.0";
 
@@ -25,6 +28,9 @@ export function createProgram(): Command {
   registerVerdictCommands(program);
   registerLedgerCommands(program);
   registerGovernanceCommands(program);
+  registerTasteCommands(program);
+  registerPolicyCommands(program);
+  registerIntegrateCommands(program);
 
   program
     .command("audit")

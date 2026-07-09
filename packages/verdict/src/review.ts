@@ -11,6 +11,10 @@ import {
 import { loadEvidencePackage } from "@cobusgreyling/outerloop-evidence";
 import { getCurrentCommitSha } from "@cobusgreyling/outerloop-evidence";
 import { renderEvidenceReview } from "./display.js";
+import {
+  loadGovernanceContext,
+  renderGovernanceContext,
+} from "./governance-context.js";
 
 export interface ReviewOptions {
   evidenceId: string;
@@ -47,10 +51,24 @@ export async function reviewEvidence(
     throw new Error(`Evidence package not found: ${options.evidenceId}`);
   }
 
+  const governance = await loadGovernanceContext(evidence, cwd);
+
   console.log(renderEvidenceReview(evidence));
+  console.log(renderGovernanceContext(governance));
 
   if (!interactive) {
     return undefined;
+  }
+
+  if (governance.policyEvaluation.requiresReview) {
+    console.log(
+      chalk.yellow("Policy requires human review for this evidence package."),
+    );
+  }
+
+  const blockActions = governance.tasteSummary.filter((t) => t.includes("block"));
+  if (blockActions.length > 0) {
+    console.log(chalk.red("Taste rules recommend block/escalation — proceed carefully."));
   }
 
   const proceed = await confirm({
@@ -94,6 +112,8 @@ export async function reviewEvidence(
     owner,
     cwd,
     dryRun: options.dryRun,
+    tasteRulesApplied: governance.tasteRuleIds,
+    backpressureApplied: governance.backpressureApplied,
   });
 }
 
@@ -105,6 +125,8 @@ export interface IssueVerdictOptions {
   cwd?: string;
   commitSha?: string;
   dryRun?: boolean;
+  tasteRulesApplied?: string[];
+  backpressureApplied?: string[];
 }
 
 export async function issueVerdict(
@@ -127,8 +149,8 @@ export async function issueVerdict(
     linkedPRs: [],
     postVerdictStatus:
       options.decision === "ship" ? "accepted" : `pending-${options.decision}`,
-    tasteRulesApplied: [],
-    backpressureApplied: [],
+    tasteRulesApplied: options.tasteRulesApplied ?? [],
+    backpressureApplied: options.backpressureApplied ?? [],
   };
 
   const ledgerEntry = buildLedgerEntry(verdict, options.evidence, commitSha);

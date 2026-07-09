@@ -26,41 +26,6 @@ export function registerGovernanceCommands(program: Command): void {
       console.log(chalk.yellow("Coming in Phase 3: harness validation."));
     });
 
-  const taste = program
-    .command("taste")
-    .description("Capture and apply organizational taste");
-
-  taste
-    .command("capture")
-    .description("Extract taste rules from critique sessions")
-    .option("--from-critique <path>", "Critique session notes file")
-    .option("--extract-rules", "Extract enforceable rules")
-    .action(() => {
-      console.log(chalk.yellow("Coming in Phase 2: taste capture pipeline."));
-    });
-
-  taste
-    .command("apply")
-    .description("Apply a taste profile")
-    .option("--profile <name>", "Taste profile name", "team-default")
-    .action((options) => {
-      console.log(
-        chalk.yellow(`Coming in Phase 2: apply taste profile ${options.profile}`),
-      );
-    });
-
-  const policy = program
-    .command("policy")
-    .description("Manage backpressure policies");
-
-  policy
-    .command("set")
-    .description("Set backpressure policy from file")
-    .requiredOption("--file <path>", "Policy YAML file")
-    .action(() => {
-      console.log(chalk.yellow("Coming in Phase 2: policy engine."));
-    });
-
   const cognitive = program
     .command("cognitive")
     .description("Cognitive debt mitigation tools");
@@ -87,26 +52,5 @@ export function registerGovernanceCommands(program: Command): void {
     .option("--batch", "Batch review mode")
     .action(() => {
       console.log(chalk.yellow("Coming in Phase 3: attention router."));
-    });
-
-  program
-    .command("integrate")
-    .description("Integration adapters")
-    .argument("<target>", "loop-engineering | cursor | claude-code | github")
-    .action((target: string) => {
-      console.log(
-        chalk.yellow(`Coming in Phase 2: integrate with ${target}.`),
-      );
-    });
-
-  const cursor = program
-    .command("cursor")
-    .description("Cursor-specific setup");
-
-  cursor
-    .command("setup")
-    .description("Install Cursor rules for verdict-aware development")
-    .action(() => {
-      console.log(chalk.yellow("Coming in Phase 2: Cursor setup templates."));
     });
 }
