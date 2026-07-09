@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/cobusgreyling/outerloop/main/docs/outerloop.jpg" alt="Outerloop" width="480" />
+  <img src="https://raw.githubusercontent.com/cobusgreyling/outerloop/main/docs/outerloop.jpg" alt="Outerloop" />
 </p>
 
 # outerloop
