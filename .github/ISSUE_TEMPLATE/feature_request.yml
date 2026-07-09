@@ -1,0 +1,53 @@
+name: Feature Request
+description: Propose a new capability or improvement
+title: "[feature]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Check [ROADMAP.md](../../ROADMAP.md) first — if your idea is already listed,
+        comment on that issue instead of opening a duplicate.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem or opportunity
+      description: What governance gap does this address?
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: CLI command, schema change, integration, etc.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - evidence
+        - verdict
+        - ledger / answerability
+        - taste
+        - policy / backpressure
+        - harness
+        - dashboard
+        - coordination
+        - integrations (loop-engineering, Cursor, GitHub)
+        - docs / DX
+        - other
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: spec
+    attributes:
+      label: Contributor checklist
+      options:
+        - label: I have read SPEC.md for schema/CLI conventions
+        - label: I am willing to open a PR for this (optional)
