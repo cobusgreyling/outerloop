@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/header.png" alt="The New AI Engineering Stack" width="900" />
+  <img src="docs/header.png" alt="Outerloop" width="480" />
 </p>
 
 # outerloop
