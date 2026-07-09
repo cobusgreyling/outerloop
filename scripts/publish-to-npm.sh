@@ -26,7 +26,13 @@ pnpm test
 
 echo ""
 echo "=== publish all @cobusgreyling/outerloop* packages ==="
-pnpm changeset publish
+if [[ -n "${NPM_OTP:-}" ]]; then
+  pnpm changeset publish --otp "$NPM_OTP"
+else
+  echo "If your npm account has 2FA, publish will fail with EOTP."
+  echo "Run: NPM_OTP=<6-digit-code> bash scripts/publish-to-npm.sh"
+  pnpm changeset publish
+fi
 
 echo ""
 echo "=== verify ==="

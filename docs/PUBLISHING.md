@@ -17,9 +17,21 @@ If `npm whoami` returns 401, your `~/.npmrc` token is expired. Re-run `npm login
 
 ### 2. Publish
 
+If your npm account has **2FA** (likely), you need a one-time code from your authenticator app:
+
+```bash
+NPM_OTP=123456 bash scripts/publish-to-npm.sh
+```
+
+Replace `123456` with the current code — it expires in ~30 seconds.
+
+Without 2FA:
+
 ```bash
 bash scripts/publish-to-npm.sh
 ```
+
+**CI tip:** Create an **Automation** token at [npm Access Tokens](https://www.npmjs.com/settings/tokens) (bypasses 2FA) and use it as `NPM_TOKEN` in GitHub secrets.
 
 Or manually:
 
