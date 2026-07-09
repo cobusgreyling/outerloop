@@ -16,6 +16,7 @@
     "demo:v2": "bash scripts/demo-v2.sh",
     "changeset": "changeset",
     "version-packages": "changeset version",
+    "version:ci": "changeset version && pnpm install --frozen-lockfile",
     "release": "pnpm build && changeset publish",
     "smoke": "bash scripts/smoke-test-published.sh"
   },

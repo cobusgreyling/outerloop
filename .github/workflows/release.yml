@@ -35,8 +35,8 @@ jobs:
       - name: Create release PR or publish
         uses: changesets/action@v1
         with:
-          version: pnpm changeset version && pnpm install --frozen-lockfile
-          publish: pnpm build && pnpm changeset publish
+          version: pnpm run version:ci
+          publish: pnpm run release
           commit: "chore: version packages"
           title: "chore: version packages"
         env:
