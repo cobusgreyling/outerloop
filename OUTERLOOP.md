@@ -1,44 +1,46 @@
 # OUTERLOOP.md — outerloop Self-Governance
 
-This file documents how the **outerloop** repository is built and maintained using outer loop primitives and [loop-engineering](https://github.com/cobusgreyling/loop-engineering) patterns for inner-loop work.
+How this repository is built and maintained using outer loop primitives and [loop-engineering](https://github.com/cobusgreyling/loop-engineering) patterns for inner-loop work.
 
 ## Philosophy
 
-Every significant change to this repo should eventually:
+Every significant change to this repo should:
 
 1. Produce an **EvidencePackage**
 2. Receive a human **Verdict** with captured rationale
 3. Be recorded in the **Ledger** for answerability
 
-Until Phase 1 ships, we document intent here and use loop-engineering patterns for implementation.
+The CLI and schemas for this workflow ship today — dogfood them on significant PRs to `main`.
 
-## Active Loops
+## Active loops
 
-### Implementation Loop (inner — loop-engineering patterns)
+### Implementation loop (inner — loop-engineering patterns)
 
 - **Harness**: Cursor / Grok with TypeScript monorepo tooling
 - **Cadence**: Iterative, verdict-gated PRs to `main`
 - **Verifier**: `pnpm build && pnpm test` before merge
 - **State**: SPEC.md is source of truth; ROADMAP.md tracks phase progress
 
-### Governance Loop (outer — outerloop primitives, Phase 1+)
+### Governance loop (outer — outerloop primitives)
 
-- **Evidence**: Package every significant PR with plan, diffs, test results, risk score
+- **Evidence**: Package significant PRs with plan, diffs, test results, risk score
 - **Verdict**: Mandatory rationale on merges to `main`
-- **Ledger**: `outerloop ledger why <sha>` must reconstruct why each release exists
-- **Taste**: Rules for "what good outerloop code looks like" (explicit, typed, answerable)
+- **Ledger**: `outerloop ledger why <sha>` reconstructs why each release exists
+- **Taste**: Rules for what good outerloop code looks like (explicit, typed, answerable)
 
-## Harness Boundary
+## Harness boundary
 
 | Inside (agent capability) | Outside (human agency) |
 |---------------------------|------------------------|
 | TypeScript implementation | Architecture decisions in SPEC |
-| Schema design from spec    | Phase scope and priority calls |
-| Test writing               | Verdict on ship/block |
-| CLI scaffolding            | Taste rules and policy defaults |
-| Documentation drafts       | Public messaging and positioning |
+| Schema design from spec | Phase scope and priority calls |
+| Test writing | Verdict on ship/block |
+| CLI scaffolding | Taste rules and policy defaults |
+| Documentation drafts | Public messaging and positioning |
 
-## Backpressure Defaults (planned)
+## Backpressure defaults
+
+Active policy lives at `.outerloop/policy/active.yaml`. Default template:
 
 ```yaml
 backpressure:
@@ -49,6 +51,14 @@ backpressure:
     lowRisk: 5%
   timebox:
     defaultLoop: 2h
+```
+
+## Local commands
+
+```bash
+pnpm build && pnpm test
+pnpm demo
+pnpm outerloop audit --project-root .
 ```
 
 ## Stories

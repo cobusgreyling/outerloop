@@ -3,7 +3,7 @@
 ## Commands
 
 ```bash
-CLI="node packages/cli/dist/cli.js"
+CLI="pnpm outerloop"
 PROJECT="examples/full-factory/fixtures"
 
 # Harness boundaries

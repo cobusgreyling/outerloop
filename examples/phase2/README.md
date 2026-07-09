@@ -4,7 +4,7 @@
 
 ```bash
 # From repo root after pnpm build
-CLI="node packages/cli/dist/cli.js"
+CLI="pnpm outerloop"
 FIXTURES="examples/full-factory/fixtures"
 
 # 1. Capture taste from critique session

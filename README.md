@@ -4,44 +4,96 @@
 
 # outerloop
 
+[![CI](https://github.com/cobusgreyling/outerloop/actions/workflows/ci.yml/badge.svg)](https://github.com/cobusgreyling/outerloop/actions/workflows/ci.yml)
+[![Node](https://img.shields.io/badge/node-%3E%3D18-brightgreen)](package.json)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+
 **Own the Outer Loop. Evidence → Verdict → Answerability. At industrial scale.**
 
 Practical primitives, tooling, and patterns for rigorously owning the human side of agentic software factories.
 
-This is the companion and evolution to [loop-engineering](https://github.com/cobusgreyling/loop-engineering). 
+Companion to [loop-engineering](https://github.com/cobusgreyling/loop-engineering).
 
-**The full project specification, architecture, data models, CLI design, and implementation roadmap lives in [SPEC.md](./SPEC.md).**
+## The loop in 60 seconds
 
-## Quick Start (Once Built)
-
-```bash
-npx @cobusgreyling/outerloop evidence package --run-id latest
-outerloop verdict review <evidence-id>
-outerloop ledger why HEAD
+```
+Agent run  →  Evidence package  →  Human verdict  →  Ledger  →  Answerability
+(inner)         (what happened)      (why ship/block)   (provenance)  (reconstruct why)
 ```
 
-## The Big Idea
+Humans define constraints and taste. Agents produce evidence. Humans issue verdicts with captured rationale. The system guarantees you can explain **why** something shipped.
 
-As inner-loop agentic systems (powered by tools like loop-engineering) become more powerful and long-running, the bottleneck and the source of competitive advantage move to the **outer loop**:
+## Try it now
 
-- Humans define constraints and taste
-- Agents produce evidence
-- Humans issue verdicts with captured rationale
-- The system guarantees answerability
+```bash
+git clone https://github.com/cobusgreyling/outerloop.git
+cd outerloop
+pnpm install
+pnpm build
+pnpm demo
+```
 
-outerloop makes this outer loop concrete, low-tax, high-signal, and scalable — while actively fighting cognitive debt and orchestration tax.
+Expected output: evidence ID, risk score, verdict recorded, and an answerability chain from `ledger why`.
 
-Read the [full SPEC.md](./SPEC.md) for the complete vision, concepts (directly mapped to Addy Osmani's framing), architecture, and Cursor-ready implementation instructions.
+More demos: `pnpm demo:phase2`, `pnpm demo:phase3`, `pnpm demo:v2`
+
+→ Full walkthrough: [QUICKSTART.md](./QUICKSTART.md)
+
+## Use on your project
+
+```bash
+# After npm publish (or local build — see QUICKSTART.md)
+npx @cobusgreyling/outerloop init
+npx @cobusgreyling/outerloop init --with-loop-engineering --with-cursor
+
+npx @cobusgreyling/outerloop evidence package --run-id latest
+npx @cobusgreyling/outerloop verdict review <evidence-id>
+npx @cobusgreyling/outerloop ledger why <evidence-id>
+```
+
+→ Adoption guide: [docs/adopting.md](./docs/adopting.md)
+
+## CLI overview
+
+| Command | Purpose |
+|---------|---------|
+| `init` | Scaffold `.outerloop/`, harness, policy, taste |
+| `evidence package` | Package agent run artifacts into EvidencePackage |
+| `verdict review` / `issue` | Human decision with mandatory rationale |
+| `ledger why` | Reconstruct answerability chain |
+| `taste` / `policy` | Organizational taste and backpressure |
+| `dashboard` | Text, Ink TUI, or web governance dashboard |
+| `audit` | Score governance health for a project |
+
+```bash
+pnpm outerloop --help    # local alias after pnpm build
+```
+
+## Examples
+
+| Example | What it demonstrates |
+|---------|---------------------|
+| [full-factory](./examples/full-factory/) | Core evidence → verdict → ledger loop |
+| [phase2](./examples/phase2/) | Taste capture + backpressure policy |
+| [phase3](./examples/phase3/) | Harness, cognitive debt, audit |
+| [v2](./examples/v2/) | Dashboard + multi-loop coordination |
+
+→ Index: [examples/README.md](./examples/README.md)
 
 ## Status
 
-This is the initial framework specification (July 2026). The implementation is intended to be built iteratively in Cursor using this spec as the source of truth, while dogfooding the outerloop primitives on the development process itself.
+**v0.3.0** — Phases 0–3 and v2 are complete. The CLI, schemas, ledger, verdict TUI, taste/policy, dashboards, and coordination registry all ship today.
+
+| Phase | Status |
+|-------|--------|
+| Phase 0–1 | ✅ Core + evidence/verdict/ledger |
+| Phase 2 | ✅ Taste + policy + integrations |
+| Phase 3 | ✅ Harness, cognitive, audit, brownfield |
+| v2 | ✅ Ink TUI, web dashboard, coordination, changesets |
+
+→ Roadmap: [ROADMAP.md](./ROADMAP.md)
 
 ## Architecture
-
-See [SPEC.md](./SPEC.md) for the full architecture, data models, and CLI design.
-
-### Packages (planned)
 
 | Package | Responsibility |
 |---------|----------------|
@@ -55,21 +107,33 @@ See [SPEC.md](./SPEC.md) for the full architecture, data models, and CLI design.
 | `harness` | Boundary spec parser and validator |
 | `cognitive` | Debt estimators, narrative generators |
 | `integrate` | loop-engineering, Cursor, GitHub adapters |
+| `dashboard` | Text, Ink TUI, and web governance views |
+| `coordination` | Multi-loop registry and collision checks |
 
-Phase 0 ships `core` and `cli`. Other packages are scaffolded for Phase 1+.
+→ Deep dive: [SPEC.md](./SPEC.md) · [docs/architecture.md](./docs/architecture.md)
 
-## Contributing Philosophy
+## Development
+
+```bash
+git clone https://github.com/cobusgreyling/outerloop.git
+cd outerloop
+pnpm install
+pnpm build
+pnpm test
+pnpm outerloop --help
+```
+
+→ [CONTRIBUTING.md](./CONTRIBUTING.md) · [docs/PUBLISHING.md](./docs/PUBLISHING.md)
+
+## Contributing philosophy
 
 - Make answerability cheap and reconstruction trivial.
 - Treat taste as a versioned, first-class engineering artifact.
 - Explicitly separate agent *capability* (inner) from human *agency* (outer).
 - Build for the accountable owner, not just the implementer.
 
-An agent can write it.  
-But before it reaches users, someone must explain why it should exist, why it's safe enough, and what they will do when it is wrong.
-
-That is the work of the outer loop.
+An agent can write it. But before it reaches users, someone must explain why it should exist, why it's safe enough, and what they will do when it is wrong. That is the work of the outer loop.
 
 ---
 
-*Built on the shoulders of loop-engineering, Addy Osmani’s outer loop thinking, and the broader agentic engineering community.*
+*Built on loop-engineering, Addy Osmani's outer loop thinking, and the broader agentic engineering community.*

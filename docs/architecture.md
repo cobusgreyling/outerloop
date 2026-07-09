@@ -1,20 +1,64 @@
 # Architecture
 
-See [SPEC.md](../SPEC.md) for the full architecture, data models, and CLI design.
+High-level map of the outerloop monorepo. For schemas, CLI design, and implementation detail, see [SPEC.md](../SPEC.md).
 
-## Packages (planned)
+## Data flow
 
-| Package | Responsibility |
-|---------|----------------|
-| `@cobusgreyling/outerloop-core` | Schemas, types, EvidencePackage builder |
-| `@cobusgreyling/outerloop` | CLI entrypoint |
-| `evidence` | Generators, normalizers, risk scorers |
-| `verdict` | Review TUI, decision recorder |
-| `ledger` | Storage, query, provenance reconstruction |
-| `taste` | Capture, versioning, rule matching |
-| `policy` | Backpressure DSL parser and enforcer |
-| `harness` | Boundary spec parser and validator |
-| `cognitive` | Debt estimators, narrative generators |
-| `integrate` | loop-engineering, Cursor, GitHub adapters |
+```mermaid
+flowchart LR
+  Run[Agent run] --> Evidence[EvidencePackage]
+  Evidence --> Verdict[Verdict + rationale]
+  Verdict --> Ledger[Ledger entry]
+  Ledger --> Answer[ledger why]
+  Taste[Taste profile] --> Verdict
+  Policy[Backpressure policy] --> Verdict
+  Harness[Harness boundary] --> Evidence
+```
 
-Phase 0 ships `core` and `cli`. Other packages are scaffolded for Phase 1+.
+## Packages
+
+| Package | Responsibility | Status |
+|---------|----------------|--------|
+| `@cobusgreyling/outerloop-core` | Zod schemas, types, paths, EvidencePackage builder | ✅ |
+| `@cobusgreyling/outerloop` | CLI entrypoint (`outerloop`) | ✅ |
+| `evidence` | Generators, normalizers, risk scorers | ✅ |
+| `verdict` | Review TUI, decision recorder | ✅ |
+| `ledger` | Storage, query, provenance reconstruction | ✅ |
+| `taste` | Capture, versioning, rule matching | ✅ |
+| `policy` | Backpressure DSL parser and enforcer | ✅ |
+| `harness` | Boundary spec parser and validator | ✅ |
+| `cognitive` | Debt estimators, narrative generators | ✅ |
+| `integrate` | loop-engineering, Cursor, GitHub adapters | ✅ |
+| `attention` | Pending verdict routing | ✅ |
+| `brownfield` | Legacy codebase introspection | ✅ |
+| `audit` | Governance health scoring | ✅ |
+| `dashboard` | Text, Ink TUI, web views | ✅ |
+| `coordination` | Multi-loop registry | ✅ |
+
+## On-disk layout
+
+Projects initialized with `outerloop init` store artifacts under `.outerloop/`:
+
+```
+.outerloop/
+├── evidence/
+├── verdicts/
+├── ledger/
+├── manifests/
+├── harness/
+├── policy/
+├── taste/
+└── coordination/
+```
+
+## Monorepo tooling
+
+- **pnpm workspaces** — `packages/*`
+- **Turborepo** — `build`, `test`, `dev` pipelines
+- **Changesets** — versioned npm releases for `@cobusgreyling/outerloop`
+
+## Further reading
+
+- [QUICKSTART.md](../QUICKSTART.md) — try the CLI in five minutes
+- [docs/adopting.md](./adopting.md) — add outerloop to your repo
+- [SPEC.md](../SPEC.md) — full specification

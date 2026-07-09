@@ -13,6 +13,13 @@ All MVP phases complete. See git history for Phase 0–3 deliverables.
 - [x] Multi-loop coordination registry (`coordination init|list|register|status|check`)
 - [x] Changesets + GitHub release workflow for npm publish
 
+## v0.3 ✅ (quick start)
+
+- [x] `outerloop init` — one-command project scaffolding
+- [x] `pnpm demo` / `pnpm outerloop` root scripts
+- [x] QUICKSTART.md, examples index, adopting guide
+- [x] Dev Container for zero-setup clone-and-run
+
 ## Future / v3
 
 - [ ] Hosted dashboard (optional cloud sync)

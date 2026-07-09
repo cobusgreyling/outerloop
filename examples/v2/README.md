@@ -3,13 +3,13 @@
 ## Ink TUI (auto-refresh every 3s)
 
 ```bash
-node packages/cli/dist/cli.js dashboard tui --project-root examples/full-factory/fixtures
+pnpm outerloop dashboard tui --project-root examples/full-factory/fixtures
 ```
 
 ## Web dashboard
 
 ```bash
-node packages/cli/dist/cli.js dashboard serve --port 4040 --project-root .
+pnpm outerloop dashboard serve --port 4040 --project-root .
 # Open http://127.0.0.1:4040/
 # API: http://127.0.0.1:4040/api/snapshot
 ```

@@ -10,9 +10,10 @@ From the repo root:
 
 ```bash
 pnpm build
+# or: pnpm demo   # runs this entire flow
 
 # 1. Package evidence from fixtures
-node packages/cli/dist/cli.js evidence package \
+pnpm outerloop evidence package \
   --run-id latest \
   --from loop-engineering \
   --project-root examples/full-factory/fixtures \
@@ -23,7 +24,7 @@ node packages/cli/dist/cli.js evidence package \
 EVIDENCE_ID=$(node -e "console.log(JSON.parse(require('fs').readFileSync('/tmp/evidence.json','utf8')).id)")
 
 # 2. Issue a verdict (non-interactive)
-node packages/cli/dist/cli.js verdict issue \
+pnpm outerloop verdict issue \
   --evidence-id "$EVIDENCE_ID" \
   --decision ship \
   --rationale "Report-only daily triage: no code changes, tests pass, findings documented in STATE.md." \
@@ -31,21 +32,21 @@ node packages/cli/dist/cli.js verdict issue \
   --commit deadbeef
 
 # 3. Reconstruct answerability
-node packages/cli/dist/cli.js ledger why "$EVIDENCE_ID" \
+pnpm outerloop ledger why "$EVIDENCE_ID" \
   --project-root examples/full-factory/fixtures
 
-node packages/cli/dist/cli.js ledger query --owner "$USER" \
+pnpm outerloop ledger query --owner "$USER" \
   --project-root examples/full-factory/fixtures
 ```
 
 ## Interactive Review
 
 ```bash
-node packages/cli/dist/cli.js evidence package \
+pnpm outerloop evidence package \
   --run-id latest \
   --project-root examples/full-factory/fixtures
 
-node packages/cli/dist/cli.js verdict review <evidence-id> \
+pnpm outerloop verdict review <evidence-id> \
   --project-root examples/full-factory/fixtures
 ```
 
@@ -54,7 +55,7 @@ node packages/cli/dist/cli.js verdict review <evidence-id> \
 Point `--project-root` at a loop-engineering checkout:
 
 ```bash
-node packages/cli/dist/cli.js evidence package \
+pnpm outerloop evidence package \
   --run-id latest \
   --project-root /path/to/loop-engineering
 ```

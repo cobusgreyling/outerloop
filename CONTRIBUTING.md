@@ -17,14 +17,18 @@ cd outerloop
 pnpm install
 pnpm build
 pnpm test
+pnpm demo
 ```
 
 Run the CLI locally:
 
 ```bash
-node packages/cli/dist/cli.js --help
-node packages/cli/dist/cli.js evidence package --run-id latest
+pnpm outerloop --help
+pnpm outerloop evidence package --run-id latest --project-root examples/full-factory/fixtures
+pnpm outerloop init --project-root /tmp/my-project
 ```
+
+See [QUICKSTART.md](./QUICKSTART.md) for the full onboarding path.
 
 ## Workflow
 

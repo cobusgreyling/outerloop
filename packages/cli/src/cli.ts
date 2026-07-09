@@ -12,8 +12,9 @@ import { registerPolicyCommands } from "./commands/policy-cmd.js";
 import { registerIntegrateCommands } from "./commands/integrate-cmd.js";
 import { registerScaleCommands } from "./commands/scale.js";
 import { registerCoordinationCommands } from "./commands/coordination-cmd.js";
+import { registerInitCommand } from "./commands/init-cmd.js";
 
-const VERSION = "0.2.0";
+const VERSION = "0.3.0";
 
 export function createProgram(): Command {
   const program = new Command();
@@ -35,6 +36,7 @@ export function createProgram(): Command {
   registerIntegrateCommands(program);
   registerScaleCommands(program);
   registerCoordinationCommands(program);
+  registerInitCommand(program);
 
   return program;
 }

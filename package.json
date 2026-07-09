@@ -9,6 +9,11 @@
     "dev": "turbo run dev",
     "lint": "turbo run lint",
     "clean": "turbo run clean && rm -rf node_modules",
+    "outerloop": "node packages/cli/dist/cli.js",
+    "demo": "bash scripts/demo-phase1.sh",
+    "demo:phase2": "bash scripts/demo-phase2.sh",
+    "demo:phase3": "bash scripts/demo-phase3.sh",
+    "demo:v2": "bash scripts/demo-v2.sh",
     "changeset": "changeset",
     "version-packages": "changeset version",
     "release": "pnpm build && changeset publish"
