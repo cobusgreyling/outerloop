@@ -32,6 +32,19 @@ jobs:
       - run: pnpm build
       - run: pnpm test
 
+      - name: Verify npm publish credentials
+        run: |
+          if [ -z "${NPM_TOKEN:-}" ]; then
+            echo "::error::NPM_TOKEN secret is not set. CI cannot publish to npm."
+            echo "Fix: create an Automation token at https://www.npmjs.com/settings/tokens"
+            echo "Then: gh secret set NPM_TOKEN --repo cobusgreyling/outerloop"
+            echo "See docs/PUBLISHING.md"
+            exit 1
+          fi
+          echo "NPM_TOKEN is set (length ${#NPM_TOKEN})"
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
       - name: Create release PR or publish
         uses: changesets/action@v1
         with:
