@@ -4,10 +4,19 @@ The `@cobusgreyling/outerloop` package is configured for public npm publish. Rel
 
 ## One-time setup
 
-1. Create an npm account and org scope `@cobusgreyling` (or use your user scope).
-2. Generate an npm access token with publish rights.
-3. Add `NPM_TOKEN` to GitHub repository secrets.
+1. **Create the npm scope** — packages publish under `@cobusgreyling/*`. On [npmjs.com](https://www.npmjs.com/):
+   - Create an npm account (if needed)
+   - Create an organization named `cobusgreyling`, or link the scope to your user account
+   - Without this scope, `pnpm changeset publish` returns `404 Not Found` on PUT
+2. Generate an npm **Automation** or **Publish** access token with publish rights to `@cobusgreyling`.
+3. Add `NPM_TOKEN` to GitHub repository **Settings → Secrets → Actions**.
 4. Merge to `main` — the [release workflow](../.github/workflows/release.yml) runs CI, then opens a version PR or publishes.
+
+Local publish (after `npm login` or `NPM_TOKEN` in env):
+
+```bash
+pnpm build && pnpm test && pnpm changeset publish
+```
 
 ## Manual publish
 
