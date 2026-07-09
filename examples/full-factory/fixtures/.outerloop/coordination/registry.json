@@ -1,0 +1,60 @@
+{
+  "version": 1,
+  "priorityStack": [
+    "ci-sweeper",
+    "pr-babysitter",
+    "dependency-sweeper",
+    "post-merge-cleanup",
+    "daily-triage"
+  ],
+  "loops": [
+    {
+      "id": "7280fd19-a28c-44a2-99db-d7a72bd36777",
+      "pattern": "ci-sweeper",
+      "level": "L2",
+      "cadence": "15m",
+      "stateFile": "ci-sweeper-state.md",
+      "priority": 1,
+      "status": "acting",
+      "actingOn": "pr-42",
+      "lastRun": "2026-07-09T11:06:21.871Z"
+    },
+    {
+      "id": "16713bbb-0144-45d8-a3a7-f0ef1a9425f7",
+      "pattern": "pr-babysitter",
+      "level": "L2",
+      "cadence": "10m",
+      "stateFile": "pr-babysitter-state.md",
+      "priority": 2,
+      "status": "idle"
+    },
+    {
+      "id": "dbaf5fe8-aa7e-48b9-9681-b9e95981d505",
+      "pattern": "dependency-sweeper",
+      "level": "L2",
+      "cadence": "6h",
+      "stateFile": "dependency-sweeper-state.md",
+      "priority": 3,
+      "status": "idle"
+    },
+    {
+      "id": "fb5a95aa-0aa4-4098-9cc2-bd8155c0701e",
+      "pattern": "post-merge-cleanup",
+      "level": "L1",
+      "cadence": "1d",
+      "stateFile": "post-merge-state.md",
+      "priority": 4,
+      "status": "idle"
+    },
+    {
+      "id": "a722bb3d-e248-414c-b4e9-e35e359ca33b",
+      "pattern": "daily-triage",
+      "level": "L1",
+      "cadence": "1d",
+      "stateFile": "STATE.md",
+      "priority": 5,
+      "status": "idle"
+    }
+  ],
+  "updatedAt": "2026-07-09T11:06:21.878Z"
+}

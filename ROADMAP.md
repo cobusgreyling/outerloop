@@ -2,43 +2,26 @@
 
 Implementation phases from [SPEC.md](./SPEC.md). Status as of July 2026.
 
-## Phase 0 — Foundation ✅
+## Phase 0–3 ✅
 
-- [x] TypeScript monorepo (pnpm workspaces + Turborepo)
-- [x] Core Zod schemas
-- [x] EvidencePackageBuilder + CLI skeleton
-- [x] OUTERLOOP.md dogfooding manifest
+All MVP phases complete. See git history for Phase 0–3 deliverables.
 
-## Phase 1 — Evidence + Verdict Core ✅
+## v2 ✅
 
-- [x] loop-engineering evidence adapter
-- [x] Verdict review TUI + ledger + commit manifests
-- [x] End-to-end example
+- [x] Rich Ink TUI dashboard (`dashboard tui`)
+- [x] Web dashboard (`dashboard serve` + `/api/snapshot`)
+- [x] Multi-loop coordination registry (`coordination init|list|register|status|check`)
+- [x] Changesets + GitHub release workflow for npm publish
 
-## Phase 2 — Taste + Policy + Integration ✅
+## Future / v3
 
-- [x] Taste capture, policy engine, loop-engineering + Cursor integration
-- [x] Governance context in verdict flow
+- [ ] Hosted dashboard (optional cloud sync)
+- [ ] Graphite-style multi-repo coordination
+- [ ] Deeper loop-engineering state file parsers for collision detection
+- [ ] Cryptographic ledger signatures (explicit non-goal for v1, reconsider for enterprise)
 
-## Phase 3 — Cognitive, Harness, Scale ✅
+## Non-Goals
 
-- [x] Cognitive debt tools (`cognitive check`)
-- [x] Harness boundary specs + validation (`harness init`, `validate`, `show`)
-- [x] Attention router for pending verdicts (`attention route`)
-- [x] Terminal governance dashboard (`dashboard`)
-- [x] Self-governance audit scoring (`audit`)
-- [x] Brownfield introspection (`brownfield scan`)
-
-## Future / v2
-
-- [ ] Rich TUI dashboard (Ink/blessed)
-- [ ] Web dashboard
-- [ ] Multi-loop coordination registry
-- [ ] npm publish + changesets release pipeline
-
-## Non-Goals (v1)
-
-- Cryptographic signatures
-- Distributed ledger
 - Heavy ML for taste inference
 - Replacing existing review tools entirely
+- Distributed ledger (v1)

@@ -1,7 +1,7 @@
 {
-  "name": "@cobusgreyling/outerloop-audit",
-  "version": "0.1.0",
-  "description": "Self-governance audit scoring for outerloop dogfooding",
+  "name": "@cobusgreyling/outerloop-coordination",
+  "version": "0.2.0",
+  "description": "Multi-loop coordination registry and collision detection",
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -10,11 +10,7 @@
   "scripts": { "build": "tsc", "test": "vitest run", "clean": "rm -rf dist" },
   "dependencies": {
     "@cobusgreyling/outerloop-core": "workspace:*",
-    "@cobusgreyling/outerloop-evidence": "workspace:*",
-    "@cobusgreyling/outerloop-ledger": "workspace:*",
-    "@cobusgreyling/outerloop-harness": "workspace:*",
-    "@cobusgreyling/outerloop-policy": "workspace:*",
-    "@cobusgreyling/outerloop-taste": "workspace:*"
+    "zod": "^3.25.67"
   },
   "devDependencies": {
     "@types/node": "^26.0.0",

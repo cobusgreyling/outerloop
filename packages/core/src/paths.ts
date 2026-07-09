@@ -37,3 +37,7 @@ export function getHarnessDir(cwd = process.cwd()): string {
 export function getBrownfieldDir(cwd = process.cwd()): string {
   return path.join(getOuterloopDir(cwd), "brownfield");
 }
+
+export function getCoordinationDir(cwd = process.cwd()): string {
+  return path.join(getOuterloopDir(cwd), "coordination");
+}

@@ -11,6 +11,7 @@ import { registerTasteCommands } from "./commands/taste.js";
 import { registerPolicyCommands } from "./commands/policy-cmd.js";
 import { registerIntegrateCommands } from "./commands/integrate-cmd.js";
 import { registerScaleCommands } from "./commands/scale.js";
+import { registerCoordinationCommands } from "./commands/coordination-cmd.js";
 
 const VERSION = "0.2.0";
 
@@ -33,6 +34,7 @@ export function createProgram(): Command {
   registerPolicyCommands(program);
   registerIntegrateCommands(program);
   registerScaleCommands(program);
+  registerCoordinationCommands(program);
 
   return program;
 }

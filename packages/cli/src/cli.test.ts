@@ -14,5 +14,6 @@ describe("createProgram", () => {
     expect(names).toContain("dashboard");
     expect(names).toContain("audit");
     expect(names).toContain("brownfield");
+    expect(names).toContain("coordination");
   });
 });

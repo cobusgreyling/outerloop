@@ -1,6 +1,6 @@
 {
   "name": "@cobusgreyling/outerloop",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Own the Outer Loop. Evidence → Verdict → Answerability.",
   "type": "module",
   "bin": {
@@ -14,6 +14,7 @@
     "dev": "tsc --watch",
     "start": "node dist/cli.js",
     "test": "vitest run",
+    "prepublishOnly": "pnpm run build && pnpm run test",
     "clean": "rm -rf dist"
   },
   "dependencies": {
@@ -29,6 +30,8 @@
     "@cobusgreyling/outerloop-attention": "workspace:*",
     "@cobusgreyling/outerloop-brownfield": "workspace:*",
     "@cobusgreyling/outerloop-audit": "workspace:*",
+    "@cobusgreyling/outerloop-dashboard": "workspace:*",
+    "@cobusgreyling/outerloop-coordination": "workspace:*",
     "chalk": "^5.4.1",
     "commander": "^14.0.0"
   },

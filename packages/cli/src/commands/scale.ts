@@ -2,9 +2,61 @@ import { Command } from "commander";
 import chalk from "chalk";
 import path from "node:path";
 import { scanBrownfield, saveBrownfieldReport } from "@cobusgreyling/outerloop-brownfield";
-import { runOuterloopAudit, renderDashboard } from "@cobusgreyling/outerloop-audit";
+import { runOuterloopAudit } from "@cobusgreyling/outerloop-audit";
+import {
+  getDashboardSnapshot,
+  renderTextDashboard,
+  runInkDashboard,
+  startWebDashboard,
+} from "@cobusgreyling/outerloop-dashboard";
 
 export function registerScaleCommands(program: Command): void {
+  const dashboard = program
+    .command("dashboard")
+    .description("Governance dashboard (text, TUI, or web)");
+
+  dashboard
+    .option("--project-root <path>", "Project root", process.cwd())
+    .action(async (options) => {
+      const cwd = path.resolve(options.projectRoot);
+      const snapshot = await getDashboardSnapshot(cwd);
+      console.log(renderTextDashboard(snapshot));
+    });
+
+  dashboard
+    .command("tui")
+    .description("Rich Ink TUI dashboard (auto-refresh)")
+    .option("--project-root <path>", "Project root", process.cwd())
+    .action(async (options) => {
+      const cwd = path.resolve(options.projectRoot);
+      await runInkDashboard(cwd);
+    });
+
+  dashboard
+    .command("serve")
+    .description("Start local web dashboard")
+    .option("--project-root <path>", "Project root", process.cwd())
+    .option("--port <port>", "HTTP port", "4040")
+    .option("--host <host>", "Bind host", "127.0.0.1")
+    .action(async (options) => {
+      const cwd = path.resolve(options.projectRoot);
+      const port = Number.parseInt(options.port, 10);
+      const server = startWebDashboard({ cwd, port, host: options.host });
+      console.log(
+        chalk.green(`Web dashboard: http://${options.host}:${port}/`),
+      );
+      console.log(chalk.dim(`API: http://${options.host}:${port}/api/snapshot`));
+      console.log(chalk.dim("Press Ctrl+C to stop"));
+
+      await new Promise<void>((resolve) => {
+        const shutdown = () => {
+          server.close(() => resolve());
+        };
+        process.on("SIGINT", shutdown);
+        process.on("SIGTERM", shutdown);
+      });
+    });
+
   const brownfield = program
     .command("brownfield")
     .description("Brownfield introspection helpers");
@@ -45,15 +97,6 @@ export function registerScaleCommands(program: Command): void {
       }
       console.log(chalk.bold("Recommendations"));
       for (const r of report.recommendations) console.log(`  → ${r}`);
-    });
-
-  program
-    .command("dashboard")
-    .description("Terminal governance dashboard")
-    .option("--project-root <path>", "Project root", process.cwd())
-    .action(async (options) => {
-      const cwd = path.resolve(options.projectRoot);
-      console.log(await renderDashboard(cwd));
     });
 
   program
