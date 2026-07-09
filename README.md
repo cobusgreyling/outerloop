@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="docs/header.png" alt="Outerloop" width="480" />
+</p>
+
 # outerloop
 
 **Own the Outer Loop. Evidence → Verdict → Answerability. At industrial scale.**
