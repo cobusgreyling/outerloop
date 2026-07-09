@@ -18,6 +18,9 @@
   },
   "dependencies": {
     "@cobusgreyling/outerloop-core": "workspace:*",
+    "@cobusgreyling/outerloop-evidence": "workspace:*",
+    "@cobusgreyling/outerloop-ledger": "workspace:*",
+    "@cobusgreyling/outerloop-verdict": "workspace:*",
     "chalk": "^5.4.1",
     "commander": "^14.0.0"
   },

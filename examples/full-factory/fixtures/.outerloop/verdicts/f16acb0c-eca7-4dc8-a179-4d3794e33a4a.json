@@ -1,0 +1,15 @@
+{
+  "id": "f16acb0c-eca7-4dc8-a179-4d3794e33a4a",
+  "evidenceId": "800fe134-386e-47c4-9cef-8ac75d0324a9",
+  "decision": "ship",
+  "rationale": "Report-only daily triage: no code changes, tests pass.",
+  "owner": "demo-user",
+  "timestamp": "2026-07-09T10:29:52.986Z",
+  "linkedCommits": [
+    "deadbeef"
+  ],
+  "linkedPRs": [],
+  "postVerdictStatus": "accepted",
+  "tasteRulesApplied": [],
+  "backpressureApplied": []
+}

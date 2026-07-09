@@ -1,0 +1,20 @@
+{
+  "entries": [
+    {
+      "id": "c6f97215-d4c9-4c57-9797-18c5dc4ca32d",
+      "runId": "2026-07-08T10:01:59Z",
+      "loopId": "daily-triage",
+      "timestamp": "2026-07-09T10:29:48.399Z",
+      "riskScore": 4,
+      "path": "/Users/cobusgreyling/outerloop/examples/full-factory/fixtures/.outerloop/evidence/c6f97215-d4c9-4c57-9797-18c5dc4ca32d.json"
+    },
+    {
+      "id": "800fe134-386e-47c4-9cef-8ac75d0324a9",
+      "runId": "2026-07-08T10:01:59Z",
+      "loopId": "daily-triage",
+      "timestamp": "2026-07-09T10:29:52.877Z",
+      "riskScore": 4,
+      "path": "/Users/cobusgreyling/outerloop/examples/full-factory/fixtures/.outerloop/evidence/800fe134-386e-47c4-9cef-8ac75d0324a9.json"
+    }
+  ]
+}

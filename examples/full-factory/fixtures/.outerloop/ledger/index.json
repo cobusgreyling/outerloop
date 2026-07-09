@@ -1,0 +1,14 @@
+{
+  "entries": [
+    {
+      "id": "a1402eae-c3a3-48ad-8b76-195363d47d42",
+      "verdictId": "f16acb0c-eca7-4dc8-a179-4d3794e33a4a",
+      "evidenceId": "800fe134-386e-47c4-9cef-8ac75d0324a9",
+      "commitSha": "deadbeef",
+      "runId": "2026-07-08T10:01:59Z",
+      "owner": "demo-user",
+      "timestamp": "2026-07-09T10:29:52.988Z",
+      "decision": "ship"
+    }
+  ]
+}

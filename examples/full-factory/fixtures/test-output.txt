@@ -1,0 +1,8 @@
+ ✓ parses JSONL entries (4ms)
+ ✓ resolves latest and specific run ids (1ms)
+ ✓ scores report-only runs low (2ms)
+ ✓ elevates score for sensitive paths and failures (1ms)
+ ✓ registers core command groups (3ms)
+
+ Test Files  3 passed (3)
+      Tests  5 passed (5)

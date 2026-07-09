@@ -27,6 +27,7 @@ temp/
 
 # Ledger runtime data (local dev)
 .outerloop/
+!examples/**/.outerloop/
 ledger-data/
 
 # Agent runtime

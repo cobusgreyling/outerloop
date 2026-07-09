@@ -1,0 +1,172 @@
+{
+  "id": "800fe134-386e-47c4-9cef-8ac75d0324a9",
+  "runId": "2026-07-08T10:01:59Z",
+  "loopId": "daily-triage",
+  "timestamp": "2026-07-09T10:29:52.877Z",
+  "source": "loop-engineering",
+  "plan": {
+    "goal": "daily-triage: report-only",
+    "steps": [
+      "Parse loop-run-log and STATE.md",
+      "Collect git diffs and test output",
+      "Score risk and generate summaries"
+    ],
+    "assumptions": [
+      "STATE.md last run: 2026-07-08T10:01:59Z"
+    ]
+  },
+  "implementation": {
+    "diffs": [
+      {
+        "path": ".gitignore",
+        "hunks": "",
+        "additions": 1,
+        "deletions": 0
+      },
+      {
+        "path": "ROADMAP.md",
+        "hunks": "",
+        "additions": 12,
+        "deletions": 11
+      },
+      {
+        "path": "examples/full-factory/README.md",
+        "hunks": "",
+        "additions": 60,
+        "deletions": 3
+      },
+      {
+        "path": "packages/cli/package.json",
+        "hunks": "",
+        "additions": 3,
+        "deletions": 0
+      },
+      {
+        "path": "packages/cli/src/commands/evidence.ts",
+        "hunks": "",
+        "additions": 70,
+        "deletions": 25
+      },
+      {
+        "path": "packages/cli/src/commands/ledger.ts",
+        "hunks": "",
+        "additions": 36,
+        "deletions": 18
+      },
+      {
+        "path": "packages/cli/src/commands/verdict.ts",
+        "hunks": "",
+        "additions": 51,
+        "deletions": 24
+      },
+      {
+        "path": "packages/core/src/index.ts",
+        "hunks": "",
+        "additions": 2,
+        "deletions": 1
+      },
+      {
+        "path": "pnpm-lock.yaml",
+        "hunks": "",
+        "additions": 436,
+        "deletions": 0
+      }
+    ],
+    "filesChanged": [
+      ".gitignore",
+      "ROADMAP.md",
+      "examples/full-factory/README.md",
+      "packages/cli/package.json",
+      "packages/cli/src/commands/evidence.ts",
+      "packages/cli/src/commands/ledger.ts",
+      "packages/cli/src/commands/verdict.ts",
+      "packages/core/src/index.ts",
+      "pnpm-lock.yaml"
+    ]
+  },
+  "verification": {
+    "tests": [
+      {
+        "name": "parses JSONL entries",
+        "status": "pass",
+        "durationMs": 4
+      },
+      {
+        "name": "resolves latest and specific run ids",
+        "status": "pass",
+        "durationMs": 1
+      },
+      {
+        "name": "scores report-only runs low",
+        "status": "pass",
+        "durationMs": 2
+      },
+      {
+        "name": "elevates score for sensitive paths and failures",
+        "status": "pass",
+        "durationMs": 1
+      },
+      {
+        "name": "registers core command groups",
+        "status": "pass",
+        "durationMs": 3
+      }
+    ]
+  },
+  "observability": {
+    "logs": [
+      "Loaded loop-run-log.md"
+    ],
+    "traces": [
+      {
+        "id": "2026-07-08T10:01:59Z",
+        "label": "daily-triage run",
+        "timestamp": "2026-07-08T10:01:59.000Z",
+        "detail": "outcome=report-only, items=1"
+      }
+    ],
+    "cost": {
+      "input": 36400,
+      "output": 15600,
+      "total": 52000
+    }
+  },
+  "riskAssessment": {
+    "score": 4,
+    "factors": [
+      "Moderate change set (9 files)"
+    ],
+    "mitigations": [
+      "All parsed tests passed"
+    ]
+  },
+  "summaries": {
+    "executive": "daily-triage run proposes changes to 9 file(s) (risk 4/10).",
+    "technical": "Pattern: daily-triage\nOutcome: report-only\nItems found: 1\nActions taken: 1\nEscalations: 0\nHigh priority: - [ ] #142 — Flaky test in ci-sweeper workflow; Loop action: flagged for human review; Human decision: (pending)",
+    "decisionRelevant": "Review diffs for: .gitignore, ROADMAP.md, examples/full-factory/README.md, packages/cli/package.json, packages/cli/src/commands/evidence.ts… Risk score: 4/10"
+  },
+  "rawArtifacts": {
+    "stateFile": "STATE.md",
+    "runLogFile": "loop-run-log.md",
+    "commitSha": "82e055cfd8ab8a9fbd0b0815e64f251ba5a8fedb",
+    "runEntry": {
+      "run_id": "2026-07-08T10:01:59Z",
+      "pattern": "daily-triage",
+      "duration_s": 10,
+      "items_found": 1,
+      "actions_taken": 1,
+      "escalations": 0,
+      "tokens_estimate": 52000,
+      "outcome": "report-only"
+    },
+    "stateSummary": {
+      "highPriorityCount": 3,
+      "watchListCount": 1
+    }
+  },
+  "harnessBoundary": {
+    "name": "loop-engineering",
+    "version": "1.0.0",
+    "path": "/Users/cobusgreyling/outerloop/examples/full-factory/fixtures"
+  }
+}

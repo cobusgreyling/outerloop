@@ -1,26 +1,27 @@
 # outerloop Roadmap
 
-Implementation phases from [SPEC.md](./SPEC.md). Status as of initial repo creation (July 2026).
+Implementation phases from [SPEC.md](./SPEC.md). Status as of July 2026.
 
-## Phase 0 — Foundation ✅ (current)
+## Phase 0 — Foundation ✅
 
 - [x] TypeScript monorepo (pnpm workspaces + Turborepo)
 - [x] Core Zod schemas (`EvidencePackage`, `Verdict`, `LedgerEntry`, `HarnessSpec`, `TasteRule`, `BackpressurePolicy`)
 - [x] `EvidencePackageBuilder` with validation
-- [x] CLI skeleton with all planned subcommands (stubs for Phase 1+)
+- [x] CLI skeleton with all planned subcommands
 - [x] `OUTERLOOP.md` dogfooding manifest
 - [x] Project structure per SPEC
 
-## Phase 1 — Evidence + Verdict Core (next)
+## Phase 1 — Evidence + Verdict Core ✅
 
-- [ ] Evidence packaging from loop-engineering run artifacts (STATE.md, worktree diffs, test output)
-- [ ] `outerloop evidence package` with file output and loop-engineering adapter
-- [ ] Rich `outerloop verdict review` TUI (diffs, risk viz, mandatory rationale)
-- [ ] File-based Ledger (JSON/JSONL + index) with `why` reconstruction
-- [ ] Git note or commit manifest attachment for verdicts
-- [ ] End-to-end example: loop-engineering daily-triage → evidence → verdict → ledger
+- [x] Evidence packaging from loop-engineering run artifacts (STATE.md, loop-run-log.md, git diffs, test output)
+- [x] `outerloop evidence package` with file output and loop-engineering adapter
+- [x] `outerloop verdict review` TUI (summaries, diff preview, risk viz, mandatory rationale)
+- [x] `outerloop verdict issue` for non-interactive verdict recording
+- [x] File-based Ledger (JSONL + index) with `why` reconstruction
+- [x] Commit manifest attachment for verdicts
+- [x] End-to-end example: daily-triage fixtures → evidence → verdict → ledger
 
-## Phase 2 — Taste + Policy + Integration
+## Phase 2 — Taste + Policy + Integration (next)
 
 - [ ] Taste capture from critique sessions + rule application
 - [ ] YAML policy engine (sampling, escalation)
