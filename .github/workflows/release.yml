@@ -15,9 +15,8 @@ permissions:
 jobs:
   release:
     runs-on: ubuntu-latest
-    # npm "GitHub Actions" tokens are stored as NPM_<id> — fall back if NPM_TOKEN unset
     env:
-      NPM_TOKEN: ${{ secrets.NPM_TOKEN || secrets.NPM_KHESAVFAAZSVQD7OTOK8MYZH4NEKCF2XANZM }}
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -48,6 +47,8 @@ jobs:
             exit 1
           fi
           echo "npm auth token is set (length ${#NPM_TOKEN})"
+          npm whoami
+          echo "Token must be Classic → Automation (bypasses 2FA). Granular/Publish tokens fail with EOTP in CI."
 
       - name: Create release PR or publish
         uses: changesets/action@v1

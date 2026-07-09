@@ -43,19 +43,16 @@ pnpm build && pnpm test && pnpm changeset publish
 
 **Required:** add `NPM_TOKEN` as a GitHub secret. Without it, the release workflow fails with npm `E404` (looks like "package not in registry" but is actually missing auth).
 
-1. Create an **Automation** token at [npm Access Tokens](https://www.npmjs.com/settings/tokens)
-   - Type: Granular or Classic **Automation**
-   - Permissions: read + write for `@cobusgreyling/*` packages
-2. Set the secret — **either**:
-
-**A)** Manual name (recommended for portability):
+1. Create a **Classic → Automation** token at [npm Access Tokens](https://www.npmjs.com/settings/tokens)
+   - Click **Generate New Token** → **Classic Token** (not Granular)
+   - Type: **Automation** — the only type that bypasses 2FA for CI
+   - Granular tokens and "Publish" tokens still return `EOTP` in GitHub Actions
+2. Set the secret:
 
 ```bash
 gh secret set NPM_TOKEN --repo cobusgreyling/outerloop
 # paste the npm_... token when prompted
 ```
-
-**B)** npm website → token → destination **GitHub Actions** — npm auto-creates a repo secret named `NPM_<id>`. The release workflow falls back to this if `NPM_TOKEN` is unset.
 
 3. Re-run the failed [Release workflow](https://github.com/cobusgreyling/outerloop/actions/workflows/release.yml) or push to `main`.
 
