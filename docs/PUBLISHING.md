@@ -4,19 +4,37 @@ The `@cobusgreyling/outerloop` package is configured for public npm publish. Rel
 
 ## One-time setup
 
-1. **Create the npm scope** — packages publish under `@cobusgreyling/*`. On [npmjs.com](https://www.npmjs.com/):
-   - Create an npm account (if needed)
-   - Create an organization named `cobusgreyling`, or link the scope to your user account
-   - Without this scope, `pnpm changeset publish` returns `404 Not Found` on PUT
-2. Generate an npm **Automation** or **Publish** access token with publish rights to `@cobusgreyling`.
-3. Add `NPM_TOKEN` to GitHub repository **Settings → Secrets → Actions**.
-4. Merge to `main` — the [release workflow](../.github/workflows/release.yml) runs CI, then opens a version PR or publishes.
+The `@cobusgreyling` org already exists on npm (e.g. `@cobusgreyling/loop-audit`). You only need a **valid auth token** with publish rights.
 
-Local publish (after `npm login` or `NPM_TOKEN` in env):
+### 1. Log in to npm (local)
+
+```bash
+npm login --auth-type=web --scope=@cobusgreyling
+npm whoami   # must succeed — not 401
+```
+
+If `npm whoami` returns 401, your `~/.npmrc` token is expired. Re-run `npm login` above, or create a new token at [npmjs.com → Access Tokens](https://www.npmjs.com/settings/~tokens) (type: **Granular**, packages: read+write, org: `cobusgreyling`).
+
+### 2. Publish
+
+```bash
+bash scripts/publish-to-npm.sh
+```
+
+Or manually:
 
 ```bash
 pnpm build && pnpm test && pnpm changeset publish
 ```
+
+### 3. GitHub Actions (CI releases)
+
+```bash
+# After npm whoami works — copy token from ~/.npmrc or npm website
+gh secret set NPM_TOKEN --repo cobusgreyling/outerloop
+```
+
+Then merge to `main` — the [release workflow](../.github/workflows/release.yml) runs CI and publishes on version bumps.
 
 ## Manual publish
 
