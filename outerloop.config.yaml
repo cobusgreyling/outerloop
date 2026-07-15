@@ -1,0 +1,14 @@
+version: 1
+integration: loop-engineering
+evidence:
+  autoPackage: true
+  runLog: loop-run-log.md
+  stateFile: STATE.md
+  onRunComplete: ./scripts/outerloop-post-run.sh
+policy:
+  file: .outerloop/policy/active.yaml
+taste:
+  activeProfile: team-default
+verdict:
+  requireRationale: true
+  attachManifest: true

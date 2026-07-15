@@ -13,7 +13,7 @@
 
 Governance primitives for agentic engineering — any harness, any team size.
 
-Companion to [loop-engineering](https://github.com/cobusgreyling/loop-engineering) (inner loops). Works standalone with Cursor, Claude Code, or custom agents.
+Companion to [loop-engineering](https://github.com/cobusgreyling/loop-engineering) (inner loops) and [harness-foundry](https://github.com/cobusgreyling/harness-foundry) (composable harness runtime). Works standalone with Cursor, Claude Code, or custom agents.
 
 ## The loop in 60 seconds
 

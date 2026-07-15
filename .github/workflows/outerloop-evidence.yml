@@ -1,0 +1,32 @@
+name: outerloop Evidence
+
+on:
+  workflow_run:
+    workflows: ["Daily Triage", "daily-triage"]
+    types: [completed]
+
+jobs:
+  package-evidence:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - run: npm install -g @cobusgreyling/outerloop@latest || npx @cobusgreyling/outerloop --version
+
+      - name: Package evidence from latest loop run
+        run: |
+          npx @cobusgreyling/outerloop evidence package \
+            --run-id latest \
+            --from loop-engineering \
+            --project-root .
+        env:
+          OUTERLOOP_RUN_ID: latest

@@ -1,0 +1,13 @@
+backpressure:
+  maxAutonomyHours: 4
+  sampling:
+    highRisk: 100%
+    mediumRisk: 30%
+    lowRisk: 5%
+  escalation:
+    - if: riskScore > 8 or touchesPayments
+      then: requireSeniorVerdict + extraEvidence
+    - if: touches auth
+      then: requireSeniorVerdict
+  timebox:
+    defaultLoop: 2h

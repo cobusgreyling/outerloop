@@ -14,6 +14,8 @@
     "demo:phase2": "bash scripts/demo-phase2.sh",
     "demo:phase3": "bash scripts/demo-phase3.sh",
     "demo:v2": "bash scripts/demo-v2.sh",
+    "routine": "bash scripts/daily-routine.sh",
+    "routine:ship": "bash scripts/daily-routine.sh --ship",
     "changeset": "changeset",
     "version-packages": "changeset version",
     "version:ci": "changeset version && pnpm install --frozen-lockfile",
