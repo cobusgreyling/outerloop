@@ -148,6 +148,14 @@ pnpm demo
 → [Contributor start here](https://github.com/cobusgreyling/outerloop/discussions/19) · [CONTRIBUTING.md](./CONTRIBUTING.md) · [Good first issues](docs/good-first-issues.md)  
 [Code of Conduct](./CODE_OF_CONDUCT.md) · [Security policy](./SECURITY.md)
 
+## Contributors
+
+| Name | GitHub | Role |
+|------|--------|------|
+| Cobus Greyling | [@cobusgreyling](https://github.com/cobusgreyling) | Creator & maintainer |
+
+→ [CONTRIBUTORS.md](./CONTRIBUTORS.md) · [contributors graph](https://github.com/cobusgreyling/outerloop/graphs/contributors)
+
 ## Contributing philosophy
 
 - Make answerability cheap and reconstruction trivial.

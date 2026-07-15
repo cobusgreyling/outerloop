@@ -15,6 +15,7 @@ Thank you for helping build the governance layer for agentic engineering.
 2. Read [ROADMAP.md](./ROADMAP.md) for planned v3 work.
 3. Run the five-minute loop in [QUICKSTART.md](./QUICKSTART.md).
 4. Read [SPEC.md](./SPEC.md) before substantial schema or CLI changes.
+5. After your first merged PR, you will be added to [CONTRIBUTORS.md](./CONTRIBUTORS.md) (`pnpm contributors:update`).
 
 ## Development setup
 

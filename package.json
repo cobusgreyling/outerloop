@@ -20,7 +20,8 @@
     "version-packages": "changeset version",
     "version:ci": "changeset version && pnpm install --frozen-lockfile",
     "release": "pnpm build && changeset publish",
-    "smoke": "bash scripts/smoke-test-published.sh"
+    "smoke": "bash scripts/smoke-test-published.sh",
+    "contributors:update": "bash scripts/update-contributors.sh"
   },
   "keywords": [
     "outerloop",
