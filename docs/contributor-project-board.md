@@ -1,21 +1,29 @@
-# Contributor project board (optional)
+# Contributor project board
 
-Create a GitHub Project to triage contributor work. **One-time setup** (UI):
+Triage board for [good first issues](./good-first-issues.md), help-wanted work, and the **v3 / Future** milestone.
 
-1. Go to [github.com/cobusgreyling/outerloop](https://github.com/cobusgreyling/outerloop) → **Projects** → **New project**
-2. Choose **Board** template
-3. Name: **outerloop contributor backlog**
-4. Add columns:
-   - **Good first** — filter: `label:"good first issue" is:open`
-   - **Help wanted** — filter: `label:"help wanted" is:open`
-   - **v3 / Future** — filter: `milestone:"v3 / Future"`
-5. Pin the project on the repo README (optional)
+## One-time CLI setup
 
-CLI (requires `gh auth refresh -s project,read:project`):
+Projects require extra `gh` scopes (not included in default `repo` tokens):
 
 ```bash
 gh auth refresh -h github.com -s project,read:project
-gh project create --owner cobusgreyling --title "outerloop contributor backlog" --format board
+bash scripts/setup-contributor-project.sh
 ```
 
-Link issues from [good-first-issues.md](./good-first-issues.md).
+The script creates **outerloop contributor backlog**, links it to this repo, and seeds open good-first / help-wanted / v3 issues.
+
+## UI polish (optional)
+
+1. Open the project → add filtered views:
+   - **Good first** — `label:"good first issue" is:open`
+   - **Help wanted** — `label:"help wanted" is:open`
+   - **v3 / Future** — `milestone:"v3 / Future"`
+2. Repo → **Projects** → pin the board
+3. Profile → **Customize your pins** → include [outerloop](https://github.com/cobusgreyling/outerloop) (profile pins are UI-only; no public API)
+
+## Manual UI path
+
+1. [github.com/cobusgreyling/outerloop](https://github.com/cobusgreyling/outerloop) → **Projects** → **New project**
+2. Board template → name **outerloop contributor backlog**
+3. Add the views above and link issues from [good-first-issues.md](./good-first-issues.md)

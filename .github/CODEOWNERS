@@ -1,0 +1,7 @@
+# Default owner for everything in this repository.
+* @cobusgreyling
+
+# Package sources — maintainer review on published surface.
+/packages/ @cobusgreyling
+/scripts/ @cobusgreyling
+/.github/ @cobusgreyling
