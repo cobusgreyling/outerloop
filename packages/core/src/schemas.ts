@@ -59,7 +59,7 @@ export const EvidencePackageSchema = z.object({
   }),
   verification: z.object({
     tests: z.array(TestResultSchema),
-    staticAnalysis: z.record(z.unknown()).optional(),
+    staticAnalysis: z.record(z.string(), z.unknown()).optional(),
     manualChecks: z.array(z.string()).optional(),
   }),
   observability: z.object({
@@ -77,7 +77,7 @@ export const EvidencePackageSchema = z.object({
     technical: z.string(),
     decisionRelevant: z.string(),
   }),
-  rawArtifacts: z.record(z.unknown()).default({}),
+  rawArtifacts: z.record(z.string(), z.unknown()).default({}),
   harnessBoundary: HarnessSpecRefSchema,
 });
 
