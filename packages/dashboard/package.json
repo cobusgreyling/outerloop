@@ -27,12 +27,12 @@
     "@cobusgreyling/outerloop-harness": "workspace:*",
     "@cobusgreyling/outerloop-ledger": "workspace:*",
     "chalk": "^5.4.1",
-    "ink": "^5.2.1",
-    "react": "^18.3.1"
+    "ink": "^7.1.1",
+    "react": "^19.2.8"
   },
   "devDependencies": {
     "@types/node": "^26.0.0",
-    "@types/react": "^18.3.23",
+    "@types/react": "^19.2.17",
     "typescript": "^6.0.3",
     "vitest": "^3.2.4"
   },
