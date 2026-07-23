@@ -25,7 +25,7 @@
     "@cobusgreyling/outerloop-ledger": "workspace:*",
     "@cobusgreyling/outerloop-taste": "workspace:*",
     "@cobusgreyling/outerloop-policy": "workspace:*",
-    "@inquirer/prompts": "^7.5.3",
+    "@inquirer/prompts": "^8.5.2",
     "chalk": "^5.4.1"
   },
   "devDependencies": {
