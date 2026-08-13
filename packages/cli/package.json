@@ -44,7 +44,7 @@
     "@cobusgreyling/outerloop-audit": "workspace:*",
     "@cobusgreyling/outerloop-dashboard": "workspace:*",
     "@cobusgreyling/outerloop-coordination": "workspace:*",
-    "chalk": "^5.4.1",
+    "chalk": "^6.0.0",
     "commander": "^15.0.0"
   },
   "devDependencies": {
