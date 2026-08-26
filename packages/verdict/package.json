@@ -25,13 +25,13 @@
     "@cobusgreyling/outerloop-ledger": "workspace:*",
     "@cobusgreyling/outerloop-taste": "workspace:*",
     "@cobusgreyling/outerloop-policy": "workspace:*",
-    "@inquirer/prompts": "^8.5.2",
+    "@inquirer/prompts": "^8.6.0",
     "chalk": "^6.0.0"
   },
   "devDependencies": {
-    "@types/node": "^26.1.2",
+    "@types/node": "^26.2.0",
     "typescript": "^7.0.2",
-    "vitest": "^4.1.10"
+    "vitest": "^4.1.11"
   },
   "license": "MIT",
   "publishConfig": {
