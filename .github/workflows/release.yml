@@ -53,10 +53,10 @@ jobs:
       - name: Create release PR or publish
         uses: changesets/action@v2
         with:
-          version: pnpm run version:ci
-          publish: pnpm run release
-          commit: "chore: version packages"
-          title: "chore: version packages"
+          version-script: pnpm run version:ci
+          publish-script: pnpm run release
+          commit-message: "chore: version packages"
+          pr-title: "chore: version packages"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ env.NPM_TOKEN }}
