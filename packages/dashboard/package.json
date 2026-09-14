@@ -28,11 +28,11 @@
     "@cobusgreyling/outerloop-ledger": "workspace:*",
     "chalk": "^6.0.0",
     "ink": "^7.1.1",
-    "react": "^19.2.8"
+    "react": "^19.3.0"
   },
   "devDependencies": {
     "@types/node": "^26.4.1",
-    "@types/react": "^19.2.18",
+    "@types/react": "^19.3.0",
     "typescript": "^7.0.2",
     "vitest": "^4.1.11"
   },
